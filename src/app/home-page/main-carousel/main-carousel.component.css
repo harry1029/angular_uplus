@@ -1,0 +1,102 @@
+
+.carousel {
+  margin: 0px auto;
+}
+
+.carousel-content {
+  display: block;
+  width: 100%;
+}
+
+.carousel-image {
+  height: 670px;
+  width: 100%;
+}
+
+
+.image-title {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  text-align: right;
+}
+
+@media screen and (max-width: 2200px) {
+  .carousel-image {
+    height: 740px;
+  }
+}
+
+@media screen and (max-width: 2000px) {
+  .carousel-image {
+    height: 680px;
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  .carousel-image {
+    height: 620px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .carousel-image {
+    height: 560px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .carousel-image {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .carousel-image {
+    height: 440px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .carousel-image {
+    height: 380px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .carousel-image {
+    height: 320px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .carousel {
+    margin: 0px auto 0px auto;
+    padding-top: 0px;
+  }
+
+  .carousel-image {
+    height: 260px;
+  }
+
+  .carousel-content {
+    margin: 0px 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.35);
+  }
+
+    .carousel-content:hover {
+      /*transform: translateY(-2px);   影响了导航按钮*/
+      box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.55);
+    }
+}
+
+@media screen and (max-width: 400px) {
+  .carousel-image {
+    height: 200px;
+  }
+}
+

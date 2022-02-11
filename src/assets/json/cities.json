@@ -1,0 +1,264 @@
+{
+  "data": [
+    {
+      "cityName": "Barrie",
+      "cityCode": "Barrie",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Belleville",
+      "cityCode": "Belleville",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Brampton",
+      "cityCode": "Brampton",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Brant",
+      "cityCode": "Brant",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Brantford",
+      "cityCode": "Brantford",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Brockville",
+      "cityCode": "Brockville",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Burlington",
+      "cityCode": "Burlington",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Cambridge",
+      "cityCode": "Cambridge",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Clarence-Rockland",
+      "cityCode": "Clarence-Rockland",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Cornwall",
+      "cityCode": "Cornwall",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Dryden",
+      "cityCode": "Dryden",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Elliot Lake",
+      "cityCode": "Elliot Lake",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Greater Sudbury",
+      "cityCode": "Greater Sudbury",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Guelph",
+      "cityCode": "Guelph",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Haldimand County",
+      "cityCode": "Haldimand County",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Hamilton",
+      "cityCode": "Hamilton",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Kawartha Lakes",
+      "cityCode": "Kawartha Lakes",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Kenora",
+      "cityCode": "Kenora",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Kingston",
+      "cityCode": "Kingston",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Kitchener",
+      "cityCode": "Kitchener",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "London",
+      "cityCode": "London",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Markham",
+      "cityCode": "Markham",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Mississauga",
+      "cityCode": "Mississauga",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Niagara Falls",
+      "cityCode": "Niagara Falls",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Norfolk County",
+      "cityCode": "Norfolk County",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "North Bay",
+      "cityCode": "North Bay",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Orillia",
+      "cityCode": "Orillia",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Oshawa",
+      "cityCode": "Oshawa",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Ottawa",
+      "cityCode": "Ottawa",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Owen Sound",
+      "cityCode": "Owen Sound",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Pembroke",
+      "cityCode": "Pembroke",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Peterborough",
+      "cityCode": "Peterborough",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Pickering",
+      "cityCode": "Pickering",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Port Colborne",
+      "cityCode": "Port Colborne",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Prince Edward County",
+      "cityCode": "Prince Edward County",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Quinte West",
+      "cityCode": "Quinte West",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Richmond Hill",
+      "cityCode": "Richmond Hill",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Sarnia",
+      "cityCode": "Sarnia",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Sault Ste. Marie",
+      "cityCode": "Sault Ste. Marie",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "St. Catharines",
+      "cityCode": "St. Catharines",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "St. Thomas",
+      "cityCode": "St. Thomas",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Stratford",
+      "cityCode": "Stratford",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Temiskaming Shores",
+      "cityCode": "Temiskaming Shores",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Thorold",
+      "cityCode": "Thorold",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Thunder Bay",
+      "cityCode": "Thunder Bay",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Timmins",
+      "cityCode": "Timmins",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Toronto",
+      "cityCode": "Toronto",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Vaughan",
+      "cityCode": "Vaughan",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Waterloo",
+      "cityCode": "Waterloo",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Welland",
+      "cityCode": "Welland",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Windsor",
+      "cityCode": "Windsor",
+      "provinceName": "Ontario"
+    },
+    {
+      "cityName": "Woodstock",
+      "cityCode": "Woodstock",
+      "provinceName": "Ontario"
+    }
+  ]
+}

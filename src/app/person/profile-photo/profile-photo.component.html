@@ -1,0 +1,46 @@
+<p-toast position="top-left"></p-toast>
+
+<div class="main-petty-content">
+  <div class="card-title block-whole-line">
+    <div style="color: black; ">Change your portrait</div>
+  </div>
+
+  <div style="padding: 20px 0px 0px;" class="block-whole-line">
+    <span class="common_text_row_light_back">Please select an image file</span>
+  </div>
+  <div style="padding: 10px 0px 10px;" class="block-whole-line">
+    <input type="file" accept=".jpg, .jpeg, .png" (change)="fileChangeEvent($event)">
+  </div>
+  <div style="padding: 10px 0px 10px;" class="block-whole-line" *ngIf="!imageChangedEvent">
+    <div class="block-three-in-line">
+      <button pButton pRipple type="button" label="back" (click)="goBack()" style="background-color: gray; font-size:16px; height:30px"
+              class="button-rounded-common-on-white block-three-in-line"></button>
+    </div>
+  </div>
+  <div style="padding: 20px 0px 0px;" class="block-whole-line" *ngIf="imageChangedEvent">
+    <image-cropper [imageChangedEvent]="imageChangedEvent"
+                   [maintainAspectRatio]="true"
+                   [aspectRatio]="4 / 4"
+                   [resizeToWidth]="256"
+                   format="png"
+                   (imageCropped)="imageCropped($event)"
+                   (imageLoaded)="imageLoaded()"
+                   (cropperReady)="cropperReady()"
+                   (loadImageFailed)="loadImageFailed()"></image-cropper>
+  </div>
+
+  <div style="padding: 10px 0px 10px;" class="block-whole-line" *ngIf="imageChangedEvent">
+    <div class="block-three-in-line">
+      <img [src]="croppedImage" style="width:110px" />
+    </div>
+    <div class="block-three-in-line" *ngIf="buttonFlag">
+      <button pButton pRipple type="button" label="OK" (click)="getImageData()" style="background-color: gray"
+              class="button-rounded-common-on-white block-three-in-line"></button>
+    </div>
+    <div class="block-three-in-line" style="padding-left: 20px" *ngIf="buttonFlag">
+      <button pButton pRipple type="button" label="Cancel" (click)="goBack()" style="background-color: gray"
+              class="button-rounded-common-on-white block-three-in-line"></button>
+    </div>
+  </div>
+</div>
+

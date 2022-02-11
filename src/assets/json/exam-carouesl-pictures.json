@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1001",
+    "code": "/daytour/intr",
+    "name": "",
+    "description": "Product Description",
+    "image": "assets/pic/main-carousel/exam_1.jpg",
+    "rating": 4
+  },
+  {
+    "id": "1002",
+    "code": "/daytour/intr",
+    "name": "",
+    "description": "Product Description",
+    "image": "assets/pic/main-carousel/exam_2.jpg",
+    "rating": 3
+  },
+  {
+    "id": "1003",
+    "code": "/daytour/intr",
+    "name": "",
+    "description": "Product Description",
+    "image": "assets/pic/main-carousel/exam_3.jpg",
+    "rating": 5
+  },
+  {
+    "id": "1004",
+    "code": "/daytour/intr",
+    "name": "",
+    "description": "Product Description",
+    "image": "assets/pic/main-carousel/exam_4.jpg",
+    "rating": 4
+  },
+  {
+    "id": "1005",
+    "code": "/daytour/intr",
+    "name": "",
+    "description": "Product Description",
+    "image": "assets/pic/main-carousel/exam_5.jpg",
+    "rating": 4
+  },
+  {
+    "id": "1006",
+    "code": "/daytour/intr",
+    "name": "",
+    "description": "Product Description",
+    "image": "assets/pic/main-carousel/exam_6.jpg",
+    "rating": 3
+  }
+]

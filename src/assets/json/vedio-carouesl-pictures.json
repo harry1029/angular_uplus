@@ -1,0 +1,34 @@
+﻿[
+  {
+    "id": "1001",
+    "code": "/daytour/intr",
+    "name": "平行泊车",
+    "description": "Product Description",
+    "image": "assets/pic/main-carousel/course_1.jpg",
+    "rating": 4
+  },
+  {
+    "id": "1002",
+    "code": "/daytour/intr",
+    "name": "三点掉头",
+    "description": "Product Description",
+    "image": "assets/pic/main-carousel/course_2.jpg",
+    "rating": 3
+  },
+  {
+    "id": "1003",
+    "code": "/daytour/intr",
+    "name": "上下坡停车",
+    "description": "Product Description",
+    "image": "assets/pic/main-carousel/course_3.jpg",
+    "rating": 5
+  },
+  {
+    "id": "1004",
+    "code": "/daytour/intr",
+    "name": "停牌路权",
+    "description": "Product Description",
+    "image": "assets/pic/main-carousel/course_4.jpg",
+    "rating": 4
+  }
+]

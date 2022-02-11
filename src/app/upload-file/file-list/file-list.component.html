@@ -1,0 +1,63 @@
+<p-toast position="top-center"></p-toast>
+<p-toast position="top-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message" >
+        <div class="confirm-box-container">
+            <div class="line">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+            </div>
+            <div class="line title">
+                {{message.summary}}
+            </div>
+            <div class="line">
+                {{message.detail}}
+            </div>
+            <div class="line">
+                {{selected.storageFileName}}{{selected.fileNameExtension}}
+            </div>
+            <div class="line">
+                <button pButton pRipple type="button" (click)="onConfirm()" label="Yes"
+                        class="button-square-common-on-white block-small-in-line"></button>
+                <button pButton pRipple type="button" (click)="onReject()" label="No" style="background-color: SlateGray;"
+                        class="button-square-common-on-white block-small-in-line"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+
+<div>Files Management</div>
+
+
+<p-table [value]="uploadFileLogStrus" styleClass="p-datatable-striped" selectionMode="single">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="text-align: center; padding: 5px; width: 60px ">Image</th>
+            <th style="text-align: center; padding: 0px; width: 300px ">File Name</th>
+            <th style="text-align: center; padding: 0px; width: 60px ">File Id</th>
+            <th style="text-align: center; padding: 0px; width: 60px ">D-Flag</th>
+            <th style="text-align: center; padding: 0px; width: 60px ">Status</th>
+            <th style="text-align: center; padding: 0px; width: 60px ">Size</th>
+            <th style="text-align: center; padding: 0px; width: 120px ">Time</th>
+            <th style="text-align: center; padding: 0px; width: 60px "></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-uploadFileLogStru>
+        <tr>
+            <td style="text-align: center; padding: 0px">
+                <img class="image-thumbnail-size" *ngIf="uploadFileLogStru.flag == 1"
+                     src="{{apiUrl}}{{uploadFileLogStru.storageFullPath}}{{uploadFileLogStru.storageFileName}}-s{{uploadFileLogStru.fileNameExtension}}" />
+                <img class="image-thumbnail-size" *ngIf="uploadFileLogStru.flag == 0"
+                     src="assets/pic/no-photo.png" />
+            </td>
+            <td style="padding: 0px 5px">{{uploadFileLogStru.storageFullPath}}{{uploadFileLogStru.storageFileName}}</td>
+            <td style="text-align: right; padding: 0px 5px">{{uploadFileLogStru.id}}</td>
+            <td style="text-align: center; padding: 0px 5px">{{uploadFileLogStru.deleteFlag}}</td>
+            <td style="text-align: center; padding: 0px 5px">{{uploadFileLogStru.status}}</td>
+            <td style="text-align: right; padding: 0px 5px">{{uploadFileLogStru.fileSize}}</td>
+            <td style="text-align: center; padding: 0px 5px">{{uploadFileLogStru.description}}</td>
+            <td style="padding: 0px 5px">
+                <button pButton pRipple type="button" icon="pi pi-times" (click)="deleteConfirm(uploadFileLogStru)"
+                        class="p-button-rounded p-button-danger p-button-outlined" style=" height: 20px; width: 20px;"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

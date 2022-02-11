@@ -1,0 +1,30 @@
+:host::ng-deep .p-dropdown .p-dropdown-label {
+    color: white;
+    font-size: 14px;
+}
+
+:host::ng-deep .p-inputtext:enabled:hover {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+:host::ng-deep .p-inputtext:enabled:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+:host::ng-deep .p-dropdown:not(.p-disabled):hover {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+:host::ng-deep .p-dropdown:not(.p-disabled).p-focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+
+input::placeholder {
+    color: white;
+    font-size: 14px;
+}

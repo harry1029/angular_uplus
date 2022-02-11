@@ -1,0 +1,22 @@
+﻿<p-toast position="top-left"></p-toast>
+
+<div class="main-content">
+    <div class="small-title" style="width:100%">
+        单位管理
+    </div>
+    <div style="display: flex; flex-direction: column; width: 280px" *ngIf="treeNodes">
+        <div style="margin: 5px 0px;">
+            <button pButton pRipple type="button" label="展开" (click)="expandAll()" style="margin-right: .5rem; font-size:14px"></button>
+            <button pButton pRipple type="button" label="收起" (click)="collapseAll()" style="margin-right: .5rem; font-size:14px"></button>
+            <button pButton pRipple type="button" label="返回" (click)="goBack()" style="margin-left: .5rem; font-size:14px"></button>
+        </div>
+        <p-tree [value]="treeNodes" selectionMode="single" [(selection)]="selectedNode" (onNodeSelect)="nodeSelect($event)">
+        </p-tree>
+    </div>
+    <app-org-tree-detail (operateResult)="fromChild($event)" [orgId]="selectedNode.id" *ngIf="operationFlag == 1"></app-org-tree-detail>
+    <app-org-tree-update (operateResult)="fromChild($event)" [orgId]="selectedNode.id" *ngIf="operationFlag == 2"></app-org-tree-update>
+    <app-org-tree-insert (operateResult)="fromChild($event)" [orgId]="selectedNode.id" *ngIf="operationFlag == 3"></app-org-tree-insert>
+
+</div>
+
+

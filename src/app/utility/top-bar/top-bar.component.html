@@ -1,0 +1,80 @@
+
+<div class="toolbar">
+  <a [routerLink]="['/']">
+    <img class="logo-size"
+         alt="U+ Education"
+         src="assets/pic/logo_uplus.png" />
+  </a>
+  <span>
+    <a [routerLink]="['/']" class="appName">
+
+    </a>
+  </span>
+
+  <p-menubar [model]="items" [style]="{'background-color': 'white','max-height':'50px',
+			'border-style': 'none', 'color': 'green', 'font-size': '1rem', 'min-width': '180px'}">
+  </p-menubar>
+
+  <div class="spacer"></div>
+
+  <a routerLink="/login" class="button fancy-button" title="Login" *ngIf="!authService.isLoggedIn">
+    <div class="login">User Login</div>
+  </a>
+
+  <div style="display: flex; flex-direction: row;align-items:center;flex-wrap:nowrap; min-width:160px" *ngIf="authService.isLoggedIn">
+    <a routerLink="{{goPersonalInfo()}}" title="Personal Info">
+      <div style=" display: flex; flex-direction: row; align-items: center;">
+        <img class="portrait-size"
+             alt="portrait"
+             src="{{authService.getUserProfilePhotoPath()}}" />
+        <span style="color:DarkSlateGrey; font-size: 1rem; font-weight: bold; margin:5px">
+          {{authService.userClaims.nickName}}
+        </span>
+      </div>
+    </a>
+    <button pButton pRipple type="button" label="[Exit]" (click)="logout()"
+            style="font-size: 0.91rem; color: gray; width: 44px; padding: 0px; padding: 0px; margin: 0px; background-color: transparent; border-style: none"></button>
+  </div>
+
+  <div class="login">
+    <span>En/</span><span style="color: green">中文</span>
+  </div>
+
+</div>
+
+
+<div class="toolbar-small">
+    <div>
+        <a routerLink="/login" title="Login" *ngIf="!authService.isLoggedIn">
+            <div class="login">Login</div>
+        </a>
+        <div style="display: flex; flex-direction: row;align-items: flex-end;flex-wrap:nowrap;" *ngIf="authService.isLoggedIn">
+            <a routerLink="{{goPersonalInfo()}}" title="Personal Info">
+                <img class="portrait-size" style="margin: 5px 0px 0px 5px" *ngIf="false"
+                     alt="portrait"
+                     src="{{authService.getUserProfilePhotoPath()}}" />
+                <span style="color: DarkSlateGrey; font-size: 0.8rem; font-weight: bold; margin:0px 5px">
+                    {{authService.userClaims.nickName}}
+                </span>
+            </a>
+            <button pButton pRipple type="button" label="[Exit]" (click)="logout()"
+                    style="font-size: 0.7rem; color: gray; padding:0px; margin:0px; background-color: transparent; border-style: none"></button>
+        </div>
+    </div>
+
+    <div style="display: flex; justify-content: flex-start; align-items:center;">
+        <a [routerLink]="['/']">
+            <img class="logo-size"
+                 alt="U+ Education"
+                 src="assets/pic/logo_uplus.png" />
+        </a>
+    </div>
+
+    <div class="login">
+        <span>En/</span><span style="color: green">中文</span>
+    </div>
+</div>
+
+<div class="top-spacer">Welcome to U+ Education!</div>
+
+

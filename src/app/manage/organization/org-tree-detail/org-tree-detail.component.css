@@ -1,0 +1,33 @@
+:host::ng-deep .pi {
+    font-size: 12px;
+}
+
+.label-field {
+    width: 90px;
+}
+
+.confirm-box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px;
+    width: 100%;
+    background-color: transparent;
+}
+
+    .confirm-box-container .line {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin: 5px;
+        width: 100%;
+        color: saddlebrown;
+        font-size: 1rem;
+    }
+
+    .confirm-box-container .title {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }

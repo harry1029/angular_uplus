@@ -1,0 +1,23 @@
+﻿<p-toast position="top-left"></p-toast>
+
+<div class="main-content">
+    <div class="small-title" style="width:100%">
+        系统菜单管理
+    </div>
+    <div style="display: flex; flex-direction: column; width: 280px" *ngIf="treeNodes">
+        <div style="margin: 5px 0px;">
+            <button pButton pRipple type="button" label="展开" (click)="expandAll()" style="margin-right: .5rem; font-size:14px"></button>
+            <button pButton pRipple type="button" label="收起" (click)="collapseAll()" style="margin-right: .5rem; font-size:14px"></button>
+            <button pButton pRipple type="button" label="返回" (click)="goBack()" style="margin-left: .5rem; font-size:14px"></button>
+        </div>
+        <p-tree [value]="treeNodes" selectionMode="single" [(selection)]="selectedNode" (onNodeSelect)="nodeSelect($event)">
+        </p-tree>
+    </div>
+
+    <app-menu-item-detail (operateResult)="fromChild($event)" [menuItemId]="selectedNode.id" *ngIf="operationFlag == 1"></app-menu-item-detail>
+    <app-menu-item-update (operateResult)="fromChild($event)" [menuItemId]="selectedNode.id" *ngIf="operationFlag == 2"></app-menu-item-update>
+    <app-menu-item-insert (operateResult)="fromChild($event)" [menuItemId]="selectedNode.id" *ngIf="operationFlag == 3"></app-menu-item-insert>
+
+</div>
+
+

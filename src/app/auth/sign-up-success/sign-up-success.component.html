@@ -1,0 +1,62 @@
+<p-toast position="top-left"></p-toast>
+
+<div class="main-petty-content background-scheme-vertical">
+  <div style="padding: 100px 0px 20px;">
+    <div style="display: flex; align-items: center; width: 90vw; " class="flex-direction-column block-whole-line">
+      <div style="font-size: 22px; color: black; padding: 10px;">Sige Up Success! </div>
+      <div style="font-size: 22px; color: black; padding: 10px;">U+ Education Welcome</div>
+      <div style="font-size: 16px; color: black; padding: 10px;" *ngIf="authService.userClaims">{{authService.userClaims.nickName}}</div>
+      <div style="font-size: 16px; color: black; padding: 10px;" *ngIf="personalInfo">Email: {{personalInfo.email}}</div>
+    </div>
+  </div>
+
+  <div style="padding: 20px 0px 20px;">
+    <div style="display: flex; align-items: center; width: 90vw; " class="flex-direction-column block-whole-line" *ngIf="personalInfo && personalInfo.emailConfirmed == 0">
+      <div style="font-size: 20px; color: maroon; padding: 10px;">Verify your email</div>
+      <div style="font-size: 16px; color: maroon; padding: 10px;">
+        <span>
+          Enter the 6-digit code sent to {{personalInfo.email}}.
+          Don’t see the email?
+          <a class='btn' style="cursor: pointer; color: blue; text-decoration: underline; " (click)="sendCode()">Send a new code.</a>
+        </span>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; width: 90vw; " class="flex-direction-column block-whole-line" *ngIf="personalInfo && personalInfo.emailConfirmed > 0">
+      <div style="font-size: 16px; color: maroon; padding: 10px;">
+        <span>
+          Email address has been verified.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 5px 0px;"  *ngIf="personalInfo && personalInfo.emailConfirmed == 0">
+    <div style="background-color: rgba(255,255,255,0.5); display: flex; align-items: center; font-size: 14px; width: 90vw; " class="border-radius-common flex-direction-row block-whole-line">
+      <i class="pi pi-key " style="padding-left: 10px; color: white; font-size: 24px; "></i>
+      <span class="block-height-common " style="padding-left: 10px"></span>
+      <input type="tel" pInputText inputId="inputCode" [(ngModel)]="verificationCode" maxlength="6"
+             class="border-radius-common border-background-transparent" style="color: black; width: 220px;" placeholder="6-digit verification code" />
+
+      <span style="margin-left: auto; ">
+        <button pButton pRipple type="button" label="Verify"
+                (click)="verify()" class="border-radius-common block-height-common"
+                style="font-size: 14px; background-color: rgba(255,255,255,0.5); border: none; min-width: 90px; color: blue">
+        </button>
+      </span>
+    </div>
+  </div>
+
+  <div style="padding: 40px 0px 20px;">
+    <div style="align-items: flex-start; font-size: 12px; width: 90vw; " class="flex-direction-column block-whole-line">
+      <div style="font-size: 16px; color: black; padding-left: 10px;">Tell Us About Yourself, This more information will help us serve you better.</div>
+      <br /><br /><br />
+      <button pButton pRipple type="button" label="Click to complete your personal information" (click)="goEdit()" class="p-button-text" style="text-decoration: underline; color: blue"></button>
+      <br /><br />
+      <button pButton pRipple type="button" label="Go Home" (click)="goHome()" class="p-button-text" style="text-decoration: underline; color: blue"></button>
+    </div>
+  </div>
+
+  <br />
+  <br />
+  <br />
+</div>

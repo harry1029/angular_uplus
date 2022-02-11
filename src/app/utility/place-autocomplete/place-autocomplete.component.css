@@ -1,0 +1,32 @@
+input::placeholder {
+    color: white;
+}
+
+.place-autocomplete {
+    width: 100%;
+}
+
+    .place-autocomplete:focus {
+        outline: 0 none;
+        outline-offset: 0;
+        box-shadow: 0 0 0 0.2rem #a6d5fa;
+        border-color: #2196F3;
+    }
+
+.place-address-autocomplete {
+    padding-left: 5px;
+    margin-top: 5px;
+}
+
+    .place-address-autocomplete:focus {
+        outline: 0 none;
+        outline-offset: 0;
+        box-shadow: 0 0 0 0.2rem #a6d5fa;
+        border-color: #2196F3;
+    }
+
+.place-address-autocomplete-label {
+    padding: 0px 0px 5px 8px;
+    font-size: 14px;
+    color: white;
+}

@@ -1,0 +1,25 @@
+<div style="width: 94vw; max-width:500px; min-width: 260px; margin:0px;">
+    <p class="place-address-autocomplete-label" style="margin:0px 4px">{{addtessTitle}}</p>
+    <input ngx-google-places-autocomplete [options]='options' (onAddressChange)="AddressChange($event)" pInputText [(ngModel)]="keyinCity"
+           placeholder="{{initialAddress}}" class="border-radius-common block-short-height-common place-autocomplete border-background-input" style="padding-left:10px" />
+
+    <div style="display: flex; flex-direction: row; justify-content: space-between; ">
+        <div style="padding:20px 0px 10px 0px;">
+            <label for="inputCity" class="place-address-autocomplete-label">City</label>
+            <div style="margin-top:5px">
+                <p-autoComplete [(ngModel)]="selectedCity" [suggestions]="filteredCities" (completeMethod)="filterCity($event)"
+                                field="cityName" [minLength]="1" (onSelect)="setProvince()" (onBlur)="cityOnBlur()"
+                                placeholder="City"   panelStyleClass="place-address-autocomplete-label"
+                                inputStyleClass="border-radius-common block-short-height-common block-two-in-line place-address-autocomplete border-background-input">
+                </p-autoComplete>
+            </div>
+        </div>
+        <div style="padding:20px 0px 10px 20px;">
+            <label for="inputProvince" class="place-address-autocomplete-label">Province</label>
+            <input placeholder="Province" type="text" id="inputProvince" pInputText [(ngModel)]="province"  style="padding-left:10px" 
+                   class="border-radius-common block-short-height-common block-two-in-line place-address-autocomplete border-background-input" />
+        </div>
+    </div>
+</div>
+
+

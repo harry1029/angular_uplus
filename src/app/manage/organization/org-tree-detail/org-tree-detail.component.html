@@ -1,0 +1,111 @@
+﻿<p-toast position="top-center"></p-toast>
+<p-toast position="top-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="confirm-box-container">
+            <div class="line">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+            </div>
+            <div class="line title">
+                {{message.summary}}
+            </div>
+            <div class="line">
+                {{message.detail}}
+            </div>
+            <div class="line">
+                单位名称：{{item.name}}
+            </div>
+            <div class="line">
+                <button pButton pRipple type="button" (click)="onConfirm()" label="Yes"
+                        class="button-square-common-on-white block-small-in-line"></button>
+                <button pButton pRipple type="button" (click)="onReject()" label="No" style="background-color: SlateGray;"
+                        class="button-square-common-on-white block-small-in-line"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+
+<div class="card-area" style="background-image: none; background-color:white">
+    <div class="small-title">
+        单位结点详细信息
+    </div>
+    <table style="font-size: 14px; padding-top:10px" *ngIf="item">
+        <tr>
+            <td class="label-field">上级单位:</td>
+            <td *ngIf="parentItem">{{parentItem.name}}</td>
+        </tr>
+        <tr>
+            <td>上级单位Id:</td>
+            <td *ngIf="parentItem">{{item.parentId}}</td>
+        </tr>
+        <tr>
+            <td>单位名称:</td>
+            <td>{{this.item.name}}</td>
+        </tr>
+        <tr>
+            <td>单位Id:</td>
+            <td>{{this.item.id}}</td>
+        </tr>
+        <tr>
+            <td>状态:</td>
+            <td>{{this.item.status}}</td>
+        </tr>
+        <tr>
+            <td>序号:</td>
+            <td>{{this.item.order}}</td>
+        </tr>
+        <tr>
+            <td>单位名称:</td>
+            <td>{{this.item.name}}</td>
+        </tr>
+        <tr>
+            <td>英文名称:</td>
+            <td>{{this.item.enName}}</td>
+        </tr>
+        <tr>
+            <td>单位代码:</td>
+            <td>{{this.item.orgCode}}</td>
+        </tr>
+        <tr>
+            <td>分公司标记:</td>
+            <td>{{this.item.divisionFlag}}</td>
+        </tr>
+        <tr>
+            <td>地址:</td>
+            <td>{{this.item.address}}</td>
+        </tr>
+        <tr>
+            <td>负责人:</td>
+            <td>{{this.item.principal}}</td>
+        </tr>
+        <tr>
+            <td>联系人:</td>
+            <td>{{this.item.secretary}}</td>
+        </tr>
+        <tr>
+            <td>电话:</td>
+            <td>{{this.item.phone1}}</td>
+        </tr>
+        <tr>
+            <td>传真:</td>
+            <td>{{this.item.fax}}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{this.item.emailAddress}}</td>
+        </tr>
+        <tr>
+            <td>Web网址:</td>
+            <td>{{this.item.webAddress}}</td>
+        </tr>
+        <tr>
+            <td>描述:</td>
+            <td>{{this.item.description}}</td>
+        </tr>
+    </table>
+    <div style="margin: 5px 0px;">
+        <button pButton pRipple type="button" label="修改" (click)="update()" style="margin-right: .5rem; font-size:14px"></button>
+        <button pButton pRipple type="button" label="删除" (click)="delete()" style="margin-right: .5rem; font-size:14px"></button>
+        <button pButton pRipple type="button" label="添加子节点" (click)="add()" style="margin-right: .5rem; font-size:14px"></button>
+        <button pButton pRipple type="button" label="取消" (click)="goBack()" style="margin-left: .5rem; font-size:14px"></button>
+    </div>
+</div>

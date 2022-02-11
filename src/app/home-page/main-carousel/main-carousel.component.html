@@ -1,0 +1,14 @@
+<div class="carousel" style="background-color: #1865FC;">
+  <p-galleria [value]="pictures" [responsiveOptions]="responsiveOptions" [circular]="true" [numVisible]="5" [containerStyle]="{'margin': '0px'}"
+              [showItemNavigators]="true" [showItemNavigatorsOnHover]="true" [showThumbnails]="false" [showIndicators]="false"
+              [autoPlay]="true" [transitionInterval]="60000">
+    <ng-template pTemplate="item" let-item>
+      <div class="carousel-content" style="background-image: url('{{item.image}}'); background-size:100% 100%;">
+        <div class="carousel-image">
+          <div class="image-title">{{item.name}}</div>
+        </div>
+      </div>
+    </ng-template>
+  </p-galleria>
+</div>
+

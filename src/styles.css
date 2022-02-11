@@ -1,1 +1,456 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  padding: 0em;
+  margin: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.logo-size {
+  width: 145px;
+  height: 50px;
+}
+
+.image-thumbnail-size {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  max-width: 50px;
+  margin: 0px auto;
+  background-color: transparent;
+  border-radius: 0px;
+}
+
+.portrait-size-in-line {
+  height: 48px;
+  width: 48px;
+  background-color: transparent;
+  border-radius: 50px;
+  margin: 5px;
+}
+
+.main-fullpage {
+  margin: 0px auto;
+  max-width: 2000px;
+  height: 100vh;
+  background-color: lightgoldenrodyellow;
+}
+
+.main-content-bak {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  border: none;
+  background-color: white;
+  margin: 0px auto 2px;
+  padding: 0px;
+  max-width: 1600px;
+}
+
+.main-content {
+  border: none;
+  margin: 0px auto;
+  padding: 0px;
+  max-width: 1600px;
+}
+
+.main-petty-content {
+  border: none;
+  margin: 0px auto 0px;
+  padding: 0px;
+  padding: 0px;
+  min-height: 800px;
+  width: 100vw;
+  max-width: 800px;
+  min-width: 320px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.card-area {
+  border: none;
+  background-color: transparent;
+  height: auto;
+  width: 500px;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 5px 10px 2px;
+  padding: 0px;
+  display: block;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  transition: all 0.2s ease-in-out;
+}
+
+.background-scheme-vertical {
+  background-image: linear-gradient(#a0bffe, #ffe0da);
+}
+
+.background-scheme-vertical_1 {
+  background-image: linear-gradient(#6F32F2, #C200E8);
+}
+
+.background-scheme-vertical_2 {
+  background-image: linear-gradient(#8C20EE, #C200E8);
+}
+
+.background-scheme-vertical_3 {
+  background-image: linear-gradient(#8B35D5, #5E3CD4);
+}
+
+.background-scheme-horizontal {
+  background-image: linear-gradient(to right, #1865FC, #C200E8);
+}
+
+.background-scheme-horizontal_3 {
+  background-image: linear-gradient(to right, #5EC7F7, #3775E8);
+}
+
+.background-scheme-horizontal_4 {
+  background-image: linear-gradient(to right, #3848A7, #4F86ED);
+}
+
+.background-scheme-horizontal_5 {
+  background-image: linear-gradient(to right, #4469CD, #6135D5);
+}
+
+.background-scheme-vertical_1_r {
+  background-image: linear-gradient(#C200E8, #6F32F2);
+}
+
+.background-scheme-horizontal_r {
+  background-image: linear-gradient(to right, #A624E2, #424EEE);
+}
+
+.card-header {
+  border: none;
+  background-color: transparent;
+  height: 40px;
+  width: 100%;
+  max-width: 800px;
+  min-width: 300px;
+  margin: 0px;
+  padding: 0px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.card-main {
+  border-radius: 20px 20px 0px 0px;
+  width: 100%;
+  max-width: 800px;
+  min-width: 300px;
+  height: auto;
+  min-height: 260px;
+  box-shadow: 0 -4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.card-container .card-area:not(.highlight-card):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.card-area.highlight-card {
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  border: none;
+  width: auto;
+  min-width: 30%;
+  position: relative;
+}
+
+.flex-justify-content-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-justify-content-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-direction-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-direction-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-title {
+  color: white;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.medium-title {
+  color: white;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.small-title {
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.smallest-title {
+  color: white;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.float-label-text {
+  font-size: 14px;
+}
+
+.content_description_text {
+  margin: 2px;
+  font-size: 10px;
+  font-weight: normal;
+  color: black;
+  text-align: left;
+  align-items: center;
+}
+
+.common_label_row_light_back {
+  font-size: 13px;
+  color: gray;
+}
+
+.common_label_row_dark_back {
+  font-size: 13px;
+  color: LightGrey;
+}
+
+.common_label_row_dark_back_s {
+  font-size: 12px;
+  color: LightGrey;
+}
+
+
+.common_text_b {
+  font-size: 16px;
+}
+
+.common_text {
+  font-size: 14px;
+}
+
+.common_text_s {
+  font-size: 12px;
+}
+
+.common_text_ss {
+  font-size: 10px;
+}
+
+.credentials-size {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 800px) {
+  .go-back-arrow-for-phone {
+    display: initial;
+  }
+
+  .card-area {
+    width: 100%;
+    max-width: none;
+    margin: 0px;
+  }
+
+  .card-container .card-area:not(.highlight-card):hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.top-back-button {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.button-rounded-smallest {
+  color: white;
+  background-color: gray;
+  font-size: 12px;
+  border: none;
+  font-weight: normal;
+  height: 20px;
+  border-radius: 2rem;
+}
+
+.button-rounded-minor-on-white {
+  color: white;
+  background-color: #3F4EF7;
+  font-size: 11px;
+  border: none;
+  font-weight: normal;
+  height: 25px;
+  min-width: 60px;
+  border-radius: 2rem;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.button-rounded-small-on-white {
+  color: white;
+  background-color: green;
+  font-size: 0.9rem;
+  border: none;
+  font-weight: normal;
+  height: 36px;
+  border-radius: 20px;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.button-rounded-common-on-white {
+  color: white;
+  background-color: gray;
+  font-size: 20px;
+  border: none;
+  font-weight: normal;
+  height: 46px;
+  border-radius: 20px;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.button-rounded-common-on-dark {
+  color: gray;
+  background-color: green;
+  font-size: 20px;
+  border: none;
+  font-weight: normal;
+  height: 46px;
+  border-radius: 20px;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.button-square-common-on-white {
+  color: white;
+  background-color: green;
+  font-size: 1.3rem;
+  border: none;
+  font-weight: bold;
+  height: 46px;
+  border-radius: 0rem;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.block-whole-line {
+  width: 94vw;
+  max-width: 500px;
+  min-width: 260px;
+  margin: 0px auto;
+}
+
+.block-two-in-line {
+  width: 45vw;
+  max-width: 240px;
+  min-width: 110px;
+}
+
+.block-two-thirds-in-line {
+  width: 60vw;
+  max-width: 320px;
+  min-width: 130px;
+}
+
+.block-three-in-line {
+  width: 30vw;
+  max-width: 160px;
+  min-width: 80px;
+}
+
+.block-four-in-line {
+  width: 22vw;
+  max-width: 120px;
+  min-width: 60px;
+}
+
+.block-five-in-line {
+  width: 20vw;
+  max-width: 100px;
+  min-width: 50px;
+}
+
+.block-small-in-line {
+  width: 30vw;
+  max-width: 140px;
+  min-width: 80px;
+}
+
+.block-18-in-line {
+  width: 6vw;
+  max-width: 31px;
+  min-width: 16px;
+}
+
+.block-border-radius {
+  height: 50px;
+  border-radius: 20px;
+  border: none;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  font-size: 0.9rem;
+}
+
+.block-short-height-common {
+  height: 40px;
+}
+
+.block-height-common {
+  height: 55px;
+}
+
+.block-tall-height-common {
+  height: 64px;
+}
+
+.border-background-transparent {
+  background-color: transparent;
+  color: white;
+}
+
+.border-background-input {
+  background-color: rgba(255,255,255,0.5);
+  color: black;
+}
+
+.border-background-dark-table {
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.border-radius-common {
+  border-radius: 20px;
+  border: none;
+}

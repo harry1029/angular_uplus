@@ -1,0 +1,42 @@
+[
+  {
+    "id": 0,
+    "image": "assets/pic/main-carousel/1.jpg",
+    "previewImage": "assets/pic/main-carousel/1.jpg",
+    "alt": "Description for Image 1",
+    "name": "U+English优惠活动",
+    "date": "2021-10-10 16:00"
+  },
+  {
+    "id": 1,
+    "image": "assets/pic/main-carousel/1.jpg",
+    "previewImage": "assets/pic/main-carousel/1.jpg",
+    "alt": "Description for Image 1",
+    "name": "U+English优惠活动",
+    "date": "2021-10-10 16:00"
+  },
+  {
+    "id": 2,
+    "image": "assets/pic/main-carousel/2.jpg",
+    "previewImage": "assets/pic/main-carousel/2.jpg",
+    "alt": "Description for Image 2",
+    "name": "优惠活动二",
+    "date": "2020/09/11"
+  },
+  {
+    "id": 3,
+    "image": "assets/pic/main-carousel/3.jpg",
+    "previewImage": "assets/pic/main-carousel/3.jpg",
+    "alt": "Description for Image 3",
+    "name": "优惠活动三",
+    "date": "2020-09-12"
+  },
+  {
+    "id": 4,
+    "image": "assets/pic/main-carousel/4.jpg",
+    "previewImage": "assets/pic/main-carousel/4.jpg",
+    "alt": "Description for Image 4",
+    "name": "加入会员，更多优惠",
+    "date": "2020-09-13"
+  }
+]

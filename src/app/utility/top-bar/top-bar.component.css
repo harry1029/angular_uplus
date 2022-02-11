@@ -1,0 +1,111 @@
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: darkblue;
+  font-weight: 600;
+  z-index: 100;
+  border-style: none none groove none;
+  border-color: Honeydew;
+}
+
+.toolbar-small {
+  display: none;
+}
+
+.appName {
+  font-size: 1.6rem;
+  margin-bottom: 2px;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.login {
+  font-size: 1.2rem;
+  margin: 10px 20px;
+  color: #053b56
+}
+
+.logo-size {
+  max-height: 50px;
+  margin: 0px auto;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.portrait-size {
+  height: 40px;
+  width: 40px;
+  margin: 0px auto;
+  background-color: transparent;
+  border-radius: 50px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+.top-spacer {
+  height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 1px 10px 0px;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .appName {
+    display: none
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  .toolbar-small {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 52px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    background-color: white;
+    color: darkblue;
+    font-weight: bold;
+    z-index: 100;
+    border-style: none none none none;
+    font-size: 14px;
+  }
+
+  .appName {
+    display: flex;
+    font-size: 22px;
+    margin-left: 5px;
+  }
+
+  .logo-size {
+    padding-left: 0px;
+  }
+
+  .login {
+    font-size: 14px;
+    margin: 0px 10px;
+    color: #053b56
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .appName-small {
+    display: none;
+  }
+}

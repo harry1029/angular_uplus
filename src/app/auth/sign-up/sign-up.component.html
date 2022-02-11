@@ -1,0 +1,37 @@
+<p-toast position="top-left"></p-toast>
+
+<div class="main-petty-content background-scheme-vertical">
+  <div style="padding: 100px 0px 20px;">
+    <div style="display: flex; align-items: center; width: 90vw; " class="flex-direction-row block-whole-line">
+      <div style="font-size: 22px; color: black; padding-left: 10px;">Let’s Get Started</div>
+    </div>
+    <br />
+    <br />
+    <div style="display: flex; align-items: center; width: 90vw; " class="flex-direction-row block-whole-line">
+      <div style="font-size: 16px; color: black; padding-left: 10px;">Sign up</div>
+    </div>
+  </div>
+
+  <div style="padding: 60px 0px 20px;">
+    <div style="background-color: rgba(255,255,255,0.5); display: flex; align-items: center; font-size: 14px; width: 90vw; " class="border-radius-common flex-direction-row block-whole-line">
+      <input type="email" id="email" pInputText [(ngModel)]="userEmail" placeholder="Eamil Address"
+             class="border-radius-common block-height-common block-whole-line border-background-input">
+    </div>
+  </div>
+
+  <div style="padding: 15px 0px;">
+    <div style="background-color: rgba(255,255,255,0.5); display: flex; align-items: center; font-size: 14px; width: 90vw; " class="border-radius-common flex-direction-row block-whole-line">
+      <input type="password" id="password" pInputText [(ngModel)]="userPassword" placeholder="Password"
+             class="border-radius-common block-height-common block-whole-line border-background-input">
+    </div>
+  </div>
+
+
+  <div style="padding:30px 0px; " class="block-whole-line">
+    <button pButton pRipple type="button" label="Sign Up" (click)="signup()" style="background-color: white; color: gray;"
+            class="button-rounded-common-on-dark block-whole-line"></button>
+  </div>
+
+  <br />
+  <br />
+</div>
