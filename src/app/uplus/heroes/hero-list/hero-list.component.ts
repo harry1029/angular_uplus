@@ -8,7 +8,6 @@ import { environment } from '../../../../environments/environment';
 import { Hero } from '../../../models/uplus/hero';
 import { HeroService } from '../../../services/uplus/hero.service';
 
-
 @Component({
   selector: 'app-hero-list',
   templateUrl: './hero-list.component.html',
@@ -25,7 +24,7 @@ export class HeroListComponent implements OnInit {
     private heroService: HeroService,
     private primengConfig: PrimeNGConfig,
     private router: Router,
-    private messageService: MessageService
+    private messageService: MessageService,
 
   ) { }
 

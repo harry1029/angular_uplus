@@ -1,0 +1,38 @@
+<p-toast position="top-left"></p-toast>
+
+<div class="main-petty-content" style="background-color: #3D3D64">
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px">API path :</span>
+    </div>
+  </div>
+
+  <div style="padding: 0px 0px 10px;">
+    <div>
+      <input type="text" id="apiPath" pInputText [(ngModel)]="api.apiPath" maxlength="60" required>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px">Description :</span>
+    </div>
+  </div>
+
+  <div style="padding: 0px 0px 10px;">
+    <div>
+      <input type="text" id="description" pInputText [(ngModel)]="api.description" style="width: 700px">
+    </div>
+  </div>
+
+  <div style="padding:20px 0px; color: white">
+    <button pButton pRipple type="button" label="Save" (click)="submit()" style="color: white; "
+            class="button-rounded-common-on-dark block-two-thirds-in-line background-scheme-horizontal"></button>
+    <button pButton pRipple type="button" label="Cancel" (click)="goBack()" style="color: white; margin-left: 10px"
+            class="button-rounded-common-on-dark block-three-in-line background-scheme-horizontal"></button>
+  </div>
+  <br />
+  <br />
+  <br />
+</div>
