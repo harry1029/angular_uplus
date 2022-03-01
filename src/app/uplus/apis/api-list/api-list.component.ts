@@ -9,13 +9,16 @@ import { environment } from '../../../../environments/environment';
 import { ApiInfo } from '../../../models/api/api-info'
 import { ApiInfoService } from '../../../services/api/api-info.service'
 
+import { CodeConversionService } from 'src/app/services/system/code-conversion.service';
+import { CodeValue } from 'src/app/models/system/code-value';
+
 
 
 @Component({
   selector: 'app-api-list',
   templateUrl: './api-list.component.html',
   styleUrls: ['./api-list.component.css'],
-  providers: [ApiInfoService, MessageService],
+  providers: [ApiInfoService, MessageService, CodeConversionService],
 })
 
 // Export the class component for router to use @uplus-routing.module.ts
@@ -23,22 +26,27 @@ export class ApiListComponent implements OnInit {
 
   apiUrl: string = environment.apiServerUrl + "/h";
   apis: ApiInfo[];
-  // heroes: Hero[];
+
   selected: ApiInfo;
+  codeValues: CodeValue[];
 
   constructor(
     private apiInfoService: ApiInfoService,
-    // private heroService: HeroService,
     private primengConfig: PrimeNGConfig,
     private router: Router,
     private messageService: MessageService,
 
+    private codeConversionService: CodeConversionService,
   ) { }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
-    // this.getHeroes();
 
+    this.codeConversionService.getCodeValues(100010)
+    .subscribe(codeList => {
+      this.codeValues = codeList;
+      console.log(this.codeValues)
+    });
     this.getAPIs();
   }
 
@@ -49,13 +57,6 @@ export class ApiListComponent implements OnInit {
         console.log("APIs: ", apis);
       });
   }
-
-  // getHeroes(): void {
-  //   this.heroService.getHeroes()
-  //     .subscribe(heroes => {
-  //       this.heroes = heroes;
-  //     });
-  // }
 
   deleteAPI(api: ApiInfo): void {
     this.apiInfoService.deleteApiInfo(api.id).subscribe(
@@ -72,68 +73,34 @@ export class ApiListComponent implements OnInit {
       });
   }
 
-  // deleteHero(h: Hero): void {
-  //   this.heroService.deleteHero(h.id).subscribe(
-  //     deleteN => {
-  //       if (deleteN > 0) {
-  //         let message = 'The hero "' + this.selected.name + '" has been successfully deleted.'
-  //         this.messageService.clear();
-  //         this.messageService.add({ severity: 'success', summary: 'Success', detail: message, life: 10000 });
-  //         this.getHeroes();
-  //       } else {
-  //         this.messageService.clear();
-  //         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'No hero has been deleted.', life: 10000 });
-  //       }
-  //     });
-  // }
-
   deleteConfirm(api: ApiInfo) {
     this.selected = api;
     this.messageService.clear();
     this.messageService.add({ key: 'c', sticky: true, severity: 'warn', summary: 'Are you sure?', detail: 'Delete the API' });
   }
 
-  // deleteConfirm(h: Hero) {
-  //   this.selected = h;
-  //   this.messageService.clear();
-  //   this.messageService.add({ key: 'c', sticky: true, severity: 'warn', summary: 'Are you sure?', detail: 'Delete the hero' });
-  // }
-
   onConfirm() {
     this.deleteAPI(this.selected);
     this.messageService.clear('c');
   }
 
-  // onConfirm() {
-  //   this.deleteHero(this.selected);
-  //   this.messageService.clear('c');
-  // }
-
   onReject() {
     this.messageService.clear('c');
   }
-
-  // onReject() {
-  //   this.messageService.clear('c');
-  // }
 
   insert() {
     this.router.navigate([`/apiinsert`]);
   }
 
-  // insert() {
-  //   this.router.navigate([`/heroinsert`]);
-  // }
 
   edit(api: ApiInfo) {
     this.selected = api;
     this.router.navigate([`/apiedit/${api.id}`]);
   }
 
-  // edit(h: Hero) {
-  //   this.selected = h;
-  //   this.router.navigate([`/heroedit/${h.id}`]);
-  // }
-
+  detail(api: ApiInfo) {
+    this.selected = api;
+    this.router.navigate([`/apidetail/${api.id}`]);
+  }
 
 }

@@ -12,16 +12,17 @@ import { ApiInfoService } from 'src/app/services/api/api-info.service';
 import { CodeConversionService } from 'src/app/services/system/code-conversion.service';
 
 @Component({
-  selector: 'app-api-edit',
-  templateUrl: './api-edit.component.html',
-  styleUrls: ['./api-edit.component.css'],
+  selector: 'app-api-detail',
+  templateUrl: './api-detail.component.html',
+  styleUrls: ['./api-detail.component.css'],
   providers: [ApiInfoService, MessageService, CodeConversionService],
 })
-export class ApiEditComponent implements OnInit {
+export class ApiDetailComponent implements OnInit {
 
   apiId: number;
   api: ApiInfo;
   codeList: CodeValue[];
+  codeValueDescription: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -57,24 +58,15 @@ export class ApiEditComponent implements OnInit {
         this.goBack()
       }
       this.api = h;
+
+      this.codeConversionService.getCodeValue(100010, this.api.apiMethod)
+        .subscribe(codeValueDescription => {
+          this.codeValueDescription = codeValueDescription;
+        });
+
+
       console.log(this.api);
       this.test();
-    })
-  }
-
-  submit() {
-    if (this.api.apiPath == null || this.api.apiPath.trim().length < 1) {
-      this.messageService.add({ severity: 'warn', detail: "API path is mandatory." });
-      return;
-    }
-    this.apiInfoService.updateApiInfo(this.api).subscribe(iRet => {
-      if (iRet > 0) {
-        this.router.navigate(['/apis']);
-      } else if (iRet == 0) {
-        this.messageService.add({ severity: 'info', detail: "Save failed." });
-      } else {
-        this.messageService.add({ severity: 'error', detail: "An error occurred in the server" });
-      }
     })
   }
 

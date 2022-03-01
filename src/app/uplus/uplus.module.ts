@@ -12,6 +12,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { FileUploadModule } from 'primeng/fileupload';
 
+import { CheckboxModule } from 'primeng/checkbox';
+
 import { UplusRoutingModule } from './uplus-routing.module';
 import { HeroListComponent } from './heroes/hero-list/hero-list.component';
 import { HeroInsertComponent } from './heroes/hero-insert/hero-insert.component';
@@ -21,6 +23,7 @@ import { HeroEditComponent } from './heroes/hero-edit/hero-edit.component';
 import { ApiListComponent } from './apis/api-list/api-list.component';
 import { ApiInsertComponent } from './apis/api-insert/api-insert.component';
 import { ApiEditComponent } from './apis/api-edit/api-edit.component';
+import { ApiDetailComponent } from './apis/api-detail/api-detail.component';
 
 
 @NgModule({
@@ -32,6 +35,7 @@ import { ApiEditComponent } from './apis/api-edit/api-edit.component';
     ApiListComponent,
     ApiInsertComponent,
     ApiEditComponent,
+    ApiDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,8 @@ import { ApiEditComponent } from './apis/api-edit/api-edit.component';
     DropdownModule,
     FileUploadModule,
     CommonModule,
-    UplusRoutingModule
+    UplusRoutingModule,
+    CheckboxModule
   ]
 })
 export class UplusModule { }

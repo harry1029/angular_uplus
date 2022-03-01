@@ -12,7 +12,7 @@
         {{message.detail}}
       </div>
       <div class="line">
-        Name: {{selected.name}}
+        API: {{codeValues[selected.apiMethod].description}} {{selected.apiPath}}
       </div>
       <div class="line">
         <button pButton pRipple type="button" (click)="onConfirm()" label="Yes"
@@ -49,9 +49,12 @@
   </ng-template>
   <ng-template pTemplate="body" let-api>
     <tr>
-      <td style="text-align: center; padding: 0px 5px">{{api.id}}</td>
-      <td style="text-align: center; padding: 0px 5px">{{api.status ? "Activate" : "Inactive" }}</td>
-      <td style="text-align: left; padding: 0px 5px">{{api.apiMethod}}</td>
+      <td style="text-align: center; padding: 0px 5px">
+        <button pButton pRipple type="button" (click)="detail(api)" title="Detail" 
+          class="p-button-rounded p-button-secondary p-button-text">{{api.id}}</button>
+      </td>
+      <td style="text-align: center; padding: 0px 5px">{{api.status ? "Active" : "Inactive"}}</td>
+      <td style="text-align: center; padding: 0px 5px">{{codeValues[api.apiMethod].description}}</td>
       <td style="text-align: left; padding: 0px 5px">{{api.apiPath}}</td>
       <td style="text-align: center; padding: 0px 5px">{{api.pathParameterRequired ? "Yes" : "No" }}</td>
       <td style="text-align: left; padding: 0px 5px">{{api.pathParameter}}</td>

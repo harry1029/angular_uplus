@@ -6,18 +6,21 @@ import { PrimeNGConfig } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 
 import { ApiInfo } from 'src/app/models/api/api-info';
+import { CodeValue } from 'src/app/models/system/code-value';
 
 import { ApiInfoService } from 'src/app/services/api/api-info.service';
+import { CodeConversionService } from 'src/app/services/system/code-conversion.service';
 
 @Component({
   selector: 'app-api-insert',
   templateUrl: './api-insert.component.html',
   styleUrls: ['./api-insert.component.css'],
-  providers: [ApiInfoService, MessageService],
+  providers: [ApiInfoService, MessageService, CodeConversionService],
 })
 export class ApiInsertComponent implements OnInit {
 
   api: ApiInfo;
+  codeList: CodeValue[];
 
   constructor(
     private route: ActivatedRoute,
@@ -26,13 +29,37 @@ export class ApiInsertComponent implements OnInit {
     private location: Location,
     private primengConfig: PrimeNGConfig,
     private messageService: MessageService,
+    private codeConversionService: CodeConversionService,
   ) { }
 
+  test() {
+    this.codeConversionService.getCodeValues(100010)
+      .subscribe(codeList => {
+        console.log("API Method List: ", codeList);
+      });
+    this.codeConversionService.getCodeValue(100010, 2)
+      .subscribe(codeList => {
+        console.log("API Method Value: ", codeList);
+      });
+  }
+
   ngOnInit(): void {
-    this.api = { id: 0, status: 0, apiMethod: 0, apiPath: "", pathParameterRequired: 0 };
+    this.api = {
+      id: 0, status: 0, apiMethod: 0, apiPath: "", pathParameterRequired: 0, pathParameter: "",
+      queryParameter: "", queryParameter1: "", authenticationRequired: 0
+    };
+
+    this.codeConversionService.getCodeValues(100010)
+      .subscribe(codeList => {
+        this.codeList = codeList;
+        console.log("API Method List: ", codeList);
+      });
   }
 
   submit() {
+    // this.api = {...this.api, status: Number(this.api.status), pathParameterRequired: Number(this.api.pathParameterRequired), 
+    //             authenticationRequired: Number(this.api.authenticationRequired)};
+
     if (this.api.apiPath == null || this.api.apiPath.trim().length < 1) {
       this.messageService.add({ severity: 'warn', detail: "apiPath is mandatory." });
       return;
@@ -44,6 +71,7 @@ export class ApiInsertComponent implements OnInit {
         this.messageService.add({ severity: 'info', detail: "Save failed." });
       } else {
         this.messageService.add({ severity: 'error', detail: "An error occurred in the server" });
+        console.log(this.api)
       }
     })
   }
