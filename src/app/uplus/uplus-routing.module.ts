@@ -15,10 +15,11 @@ const routes: Routes = [
   { path: 'heroinsert', component: HeroInsertComponent },
   { path: 'heroedit/:id', component: HeroEditComponent },
 
-  { path: 'apis', component: ApiListComponent },
-  { path: 'apiinsert', component: ApiInsertComponent },
-  { path: 'apiedit/:id', component: ApiEditComponent},
-  { path: 'apidetail/:id', component: ApiDetailComponent},
+  { path: 'manage/apis', component: ApiListComponent },
+  { path: 'manage/apiinsert', component: ApiInsertComponent },
+  { path: 'manage/apiedit/:id', component: ApiEditComponent},
+  { path: 'manage/apidetail/:id', component: ApiDetailComponent},
+  
 ];
 
 

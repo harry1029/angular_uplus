@@ -69,7 +69,7 @@ export class ApiEditComponent implements OnInit {
     }
     this.apiInfoService.updateApiInfo(this.api).subscribe(iRet => {
       if (iRet > 0) {
-        this.router.navigate(['/apis']);
+        this.router.navigate(['manage/apis']);
       } else if (iRet == 0) {
         this.messageService.add({ severity: 'info', detail: "Save failed." });
       } else {

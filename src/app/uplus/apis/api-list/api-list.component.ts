@@ -89,18 +89,18 @@ export class ApiListComponent implements OnInit {
   }
 
   insert() {
-    this.router.navigate([`/apiinsert`]);
+    this.router.navigate([`manage/apiinsert`]);
   }
 
 
   edit(api: ApiInfo) {
     this.selected = api;
-    this.router.navigate([`/apiedit/${api.id}`]);
+    this.router.navigate([`manage/apiedit/${api.id}`]);
   }
 
   detail(api: ApiInfo) {
     this.selected = api;
-    this.router.navigate([`/apidetail/${api.id}`]);
+    this.router.navigate([`manage/apidetail/${api.id}`]);
   }
 
 }

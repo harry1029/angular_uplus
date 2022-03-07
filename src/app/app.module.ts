@@ -27,7 +27,6 @@ import { PlaceAutocompleteModule } from './utility/place-autocomplete/place-auto
 import { ManageModule } from './manage/manage.module';
 import { UplusModule } from './uplus/uplus.module';
 import { PersonModule } from './person/person.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -55,7 +54,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SocialLoginModule,
     PersonModule,
     AppRoutingModule,
-    NgbModule,
     //AppRoutingModule要往后放，因为path: '**'
   ],
   providers: [
