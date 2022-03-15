@@ -26,8 +26,8 @@ export class TopBarComponent implements OnInit {
     private userMenuService: UserMenuService,
   ) { }
 
-  goPersonalInfo(): string {
-    return `/personal/my/${this.authService.userClaims.userId}`
+  goPersonInfo(): string {
+    return `/person/my/${this.authService.userClaims.userId}`
   }
 
   ngOnInit(): void {

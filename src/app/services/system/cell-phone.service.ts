@@ -22,7 +22,7 @@ export class CellPhoneService {
     apiUrl: string = environment.apiServerUrl;
 
     sendVerificationCode(areaId: number, phoneNumber: string): Observable<string> {
-        let paras: ParameterApiStru = { id: 0, intPara1: areaId, strPara1: phoneNumber }
+      let paras: ParameterApiStru = { id: 0, intPara1: areaId, strPara1: phoneNumber }
         const url = `${this.apiUrl}/h?dt=snedvc`;
         return this.http.post<string>(url, paras, this.httpOptions).pipe(
             catchError(this.handleHttpErrorService.handleError<string>(`CellPhoneService: sendVerificationCode phoneNumber=${phoneNumber}`))

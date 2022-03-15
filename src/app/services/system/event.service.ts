@@ -5,7 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
 import { HandleHttpErrorService } from '../system/handle-http-error.service';
-import { PersonalEvent } from '../../models/system/personal-event';
+import { PersonEvent } from '../../models/system/person-event';
 
 @Injectable()
 export class EventService {
@@ -20,10 +20,10 @@ export class EventService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-    //获取当前一周的个人事件
-    getPersonalWeekEvents(personalId: number, date: number, userType: number): Observable<PersonalEvent[]> {
-        return this.http.get<PersonalEvent[]>(`${this.url}/hs/${personalId}?dt=pweekevent&date=${date}&usertype=${userType}`).pipe(
-            catchError(this.handleHttpErrorService.handleError<PersonalEvent[]>('ScheduleService.getTrainerWeekSchedule'))
+    //禄帽脠隆碌卤脟掳脪禄脰脺碌脛赂枚脠脣脢脗录镁
+    getPersonWeekEvents(personId: number, date: number, userType: number): Observable<PersonEvent[]> {
+        return this.http.get<PersonEvent[]>(`${this.url}/hs/${personId}?dt=pweekevent&date=${date}&usertype=${userType}`).pipe(
+            catchError(this.handleHttpErrorService.handleError<PersonEvent[]>('ScheduleService.getTrainerWeekSchedule'))
         );
     }
 }

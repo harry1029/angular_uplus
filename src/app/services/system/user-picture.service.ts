@@ -21,7 +21,7 @@ export class UserPictureService {
 
     getUserPictureId(userId: number, pictureType: number): Observable<number> {
         return this.http.get<number>(`${this.url}/hs/${userId}?dt=userpictureid&picturetype=${pictureType}`).pipe(
-            catchError(this.handleHttpErrorService.handleError<number>('PersonalInfoService.getPersonalInfo'))
+            catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.getPersonInfo'))
         );
     }
 

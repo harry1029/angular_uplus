@@ -1,8 +1,11 @@
 
 export interface Organization {
-    id: number;
-    parentId?: number;
-    orgName?: string;
-    orgCode?: string;
-    description?: string;
+  id: number;
+  parentId?: number;
+  divisionId?: number;
+  type?: number;
+  code?: string;
+  name?: string;
+  originalName?: string;
+  description?: string;
 }

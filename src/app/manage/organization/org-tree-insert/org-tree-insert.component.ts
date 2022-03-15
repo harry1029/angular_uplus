@@ -1,4 +1,4 @@
-﻿import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
@@ -55,11 +55,6 @@ export class OrgTreeInsertComponent implements OnInit {
             this.item.status = 1
         } else {
             this.item.status = 0
-        }
-        if (this.divisionFlag) {
-            this.item.divisionFlag = 1
-        } else {
-            this.item.divisionFlag = 0
         }
         this.buttonFlag = false;
         this.organizationService.addOrg(this.item).subscribe(iRet => {

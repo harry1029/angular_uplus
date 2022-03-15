@@ -22,16 +22,16 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { PlaceAutocompleteModule } from '../utility/place-autocomplete/place-autocomplete.module';
 
 import { PersonRoutingModule } from './person-routing.module';
-import { PersonalInfoEditComponent } from './personal-info-edit/personal-info-edit.component';
-import { PersonalInfoComponent } from './personal-info/personal-info.component';
+import { PersonInfoEditComponent } from './person-info-edit/person-info-edit.component';
+import { PersonInfoComponent } from './person-info/person-info.component';
 import { ProfilePhotoComponent } from './profile-photo/profile-photo.component';
 import { MyHomeComponent } from './my-home/my-home.component';
 
 
 @NgModule({
   declarations: [
-    PersonalInfoComponent,
-    PersonalInfoEditComponent,
+    PersonInfoComponent,
+    PersonInfoEditComponent,
     MyHomeComponent,
     ProfilePhotoComponent,
   ],

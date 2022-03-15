@@ -1,0 +1,80 @@
+<p-toast position="top-center"></p-toast>
+<p-toast position="top-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+    <div class="confirm-box-container">
+      <div class="line">
+        <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+      </div>
+      <div class="line title">
+        {{message.summary}}
+      </div>
+      <div class="line">
+        {{message.detail}}
+      </div>
+      <div class="line">
+        API: {{codeValues[selected.apiMethod].description}} {{selected.apiPath}}
+      </div>
+      <div class="line">
+        <button pButton pRipple type="button" (click)="onConfirm()" label="Yes"
+                class="button-square-common-on-white block-small-in-line"></button>
+        <button pButton pRipple type="button" (click)="onReject()" label="No" style="background-color: SlateGray;"
+                class="button-square-common-on-white block-small-in-line"></button>
+      </div>
+    </div>
+  </ng-template>
+</p-toast>
+
+<div style="padding: 10px; font-size: 22px; font-weight: bold">API Management</div>
+
+<div style="padding:10px">
+  <button pButton pRipple type="button" label="Insert a new API" (click)="insert()" style="background-color: forestgreen; color: white;">
+  </button>
+</div>
+
+
+<!-- Test code API table -->
+<p-table [value]="apis" styleClass="p-datatable-striped" selectionMode="single">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="text-align: center; padding: 5px; width: 60px ">ID</th>
+      <th style="text-align: center; padding: 0px; width: 80px ">status</th>
+      <th style="text-align: center; padding: 0px; width: 80px ">method</th>
+      <th style="text-align: center; padding: 0px; width: 150px ">path</th>
+      <th style="text-align: center; padding: 0px; width: 80px ">path_parameter_required</th>
+      <th style="text-align: center; padding: 0px; width: 300px ">path_parameter</th>
+      <th style="text-align: center; padding: 0px; width: 150px ">query_parameter</th>
+      <th style="text-align: center; padding: 0px; width: 150px ">query_parameter_1</th>
+      <th style="text-align: center; padding: 0px; width: 150px ">authentication_required</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-api>
+    <tr>
+      <td style="text-align: center; padding: 0px 5px">
+        <button pButton pRipple type="button" (click)="detail(api)" title="Detail" 
+          class="p-button-rounded p-button-secondary p-button-text">{{api.id}}</button>
+      </td>
+      <td style="text-align: center; padding: 0px 5px">{{api.status ? "Active" : "Inactive"}}</td>
+      <td style="text-align: center; padding: 0px 5px">{{codeValues[api.apiMethod].description}}</td>
+      <td style="text-align: left; padding: 0px 5px">{{api.apiPath}}</td>
+      <td style="text-align: center; padding: 0px 5px">{{api.pathParameterRequired ? "Yes" : "No" }}</td>
+      <td style="text-align: left; padding: 0px 5px">{{api.pathParameter}}</td>
+      <td style="text-align: left; padding: 0px 5px">{{api.queryParameter}}</td>
+      <td style="text-align: left; padding: 0px 5px">{{api.queryParameter1}}</td>
+      <td style="text-align: center; padding: 0px 5px">{{api.authenticationRequired ? "Yes" : "No" }}</td>
+      <td style="padding: 0px 5px">
+        <button pButton pRipple type="button" icon="pi pi-trash" (click)="deleteConfirm(api)" title="Delete"
+                class="p-button-rounded p-button-secondary p-button-text" style=" height: 20px; width: 20px;"></button>
+      </td>
+      <td style="padding: 0px 5px">
+        <button pButton pRipple type="button" icon="pi pi-pencil" (click)="edit(api)" title="Edit"
+                class="p-button-rounded p-button-secondary p-button-text" style=" height: 20px; width: 20px;"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<br />
+<br />
+<br />
+<br />
+<br />

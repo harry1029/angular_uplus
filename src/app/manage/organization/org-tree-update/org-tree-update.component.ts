@@ -18,7 +18,7 @@ export class OrgTreeUpdateComponent implements OnInit {
     @Input() orgId: number;
     item: OrgTree;
     parentItem: OrgTree;
-    buttonFlag: boolean = true;     //用于控制提交按钮的显示，避免重复提交。
+    buttonFlag: boolean = true;     //脫脙脫脷驴脴脰脝脤谩陆禄掳麓脜楼碌脛脧脭脢戮拢卢卤脺脙芒脰脴赂麓脤谩陆禄隆拢
     status: boolean = true;
     divisionFlag: boolean = false;
 
@@ -38,18 +38,17 @@ export class OrgTreeUpdateComponent implements OnInit {
         this.getItem();
     }
 
-    //获取树节点
+    //禄帽脠隆脢梅陆脷碌茫
     private getItem() {
         this.organizationService.getOrg(this.orgId)
             .subscribe(item => {
                 this.item = item
                 this.getParent()
                 this.status = this.item.status > 0
-                this.divisionFlag = this.item.divisionFlag > 0
             });
     }
 
-    //获取父节点
+    //禄帽脠隆赂赂陆脷碌茫
     private getParent() {
         this.organizationService.getOrg(this.item.parentId)
             .subscribe(item => {
@@ -60,7 +59,7 @@ export class OrgTreeUpdateComponent implements OnInit {
     submit() {
 
         if (this.item.name == null || this.item.name.trim().length < 1) {
-            this.messageService.add({ severity: 'warn', detail: "单位名不能为空" });
+            this.messageService.add({ severity: 'warn', detail: "碌楼脦禄脙没虏禄脛脺脦陋驴脮" });
             return;
         }
         if (this.status) {
@@ -68,20 +67,15 @@ export class OrgTreeUpdateComponent implements OnInit {
         } else {
             this.item.status = 0
         }
-        if (this.divisionFlag) {
-            this.item.divisionFlag = 1
-        } else {
-            this.item.divisionFlag = 0
-        }
         this.buttonFlag = false;
         this.organizationService.updateOrg(this.item).subscribe(iRet => {
             this.buttonFlag = true;
             if (iRet > 0) {
                 this.operateResult.emit(iRet);
             } else if (iRet == 0) {
-                this.messageService.add({ severity: 'info', detail: this.item.name + " 单位信息更新失败，请重试" });
+                this.messageService.add({ severity: 'info', detail: this.item.name + " 碌楼脦禄脨脜脧垄赂眉脨脗脢搂掳脺拢卢脟毛脰脴脢脭" });
             } else {
-                this.messageService.add({ severity: 'error', detail: "服务器内部出现错误，请稍后再试" });
+                this.messageService.add({ severity: 'error', detail: "路镁脦帽脝梅脛脷虏驴鲁枚脧脰麓铆脦贸拢卢脟毛脡脭潞贸脭脵脢脭" });
             }
         })
     }

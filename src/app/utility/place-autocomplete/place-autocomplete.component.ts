@@ -21,6 +21,7 @@ export class PlaceAutocompleteComponent implements OnInit {
   @Input() addtessTitle: string;//父类传来的值
   @Input() initialAddress: string;
   @Input() province: string;
+  @Input() country: string;
   @Input() postcode: string;
 
   constructor(private cityService: CityService) { }
@@ -53,7 +54,6 @@ export class PlaceAutocompleteComponent implements OnInit {
   formattedaddress: string;
   houseNumber: string;
   street: string;
-  country: string;
   keyinCity: string;
 
   options = {

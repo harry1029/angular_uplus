@@ -26,7 +26,7 @@ export class CodeConversionService {
         );
     }
 
-    //µÃµ½¶àÖµµÄ×Ö·û´®
+    //得到多值的字符串
     getDisplayValueList(ids: number[], dataType: string): Observable<string> {
         return this.http.post<string>(`${this.url}/co?dt=${dataType}`, ids, this.httpOptions).pipe(
             catchError(this.handleHttpErrorService.handleError<string>('CodeConversionService.getDisplayValue', dataType))

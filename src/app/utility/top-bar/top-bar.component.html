@@ -22,7 +22,7 @@
   </a>
 
   <div style="display: flex; flex-direction: row;align-items:center;flex-wrap:nowrap; min-width:160px" *ngIf="authService.isLoggedIn">
-    <a routerLink="{{goPersonalInfo()}}" title="Personal Info">
+    <a routerLink="{{goPersonInfo()}}" title="Person Info">
       <div style=" display: flex; flex-direction: row; align-items: center;">
         <img class="portrait-size"
              alt="portrait"
@@ -49,7 +49,7 @@
             <div class="login">Login</div>
         </a>
         <div style="display: flex; flex-direction: row;align-items: flex-end;flex-wrap:nowrap;" *ngIf="authService.isLoggedIn">
-            <a routerLink="{{goPersonalInfo()}}" title="Personal Info">
+            <a routerLink="{{goPersonInfo()}}" title="Person Info">
                 <img class="portrait-size" style="margin: 5px 0px 0px 5px" *ngIf="false"
                      alt="portrait"
                      src="{{authService.getUserProfilePhotoPath()}}" />

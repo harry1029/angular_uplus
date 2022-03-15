@@ -10,7 +10,7 @@
 <br />
 <br />
 
-<p-fileUpload name="file" url="http://72.167.44.124:8080/filesupload?uploadtype=301" (onUpload)="onUpload($event)"
+<p-fileUpload name="file" url="http://localhost:8080/filesupload?uploadtype=301" (onUpload)="onUpload($event)"
               multiple="multiple" accept="image/*" maxFileSize="2097152" fileLimit="5"
               cancelLabel="取消">
     <ng-template pTemplate="content">
@@ -26,14 +26,14 @@
 <br />
 <br />
 <h5>Basic</h5>
-<p-fileUpload mode="basic" name="file" url="http://72.167.44.124:8080/filesupload?uploadtype=302" maxFileSize="16777216" (onUpload)="onUpload($event)" chooseLabel="添加文件">
+<p-fileUpload mode="basic" name="file" url="http://localhost:8080/filesupload?uploadtype=302" maxFileSize="16777216" (onUpload)="onUpload($event)" chooseLabel="添加文件">
     <ng-template pTemplate="toolbar">
         <div>请选择上传任意格式的文件</div>
     </ng-template>
 </p-fileUpload>
 <br />
 <br />
-<p-fileUpload #fubauto mode="basic" name="file" url="http://72.167.44.124:8080/fileupload?uploadtype=303" accept="image/*" maxFileSize="4194304" (onUpload)="onUpload($event)" [auto]="true" chooseLabel="Browse">
+<p-fileUpload #fubauto mode="basic" name="file" url="http://localhost:8080/fileupload?uploadtype=303" accept="image/*" maxFileSize="4194304" (onUpload)="onUpload($event)" [auto]="true" chooseLabel="Browse">
     <ng-template pTemplate="toolbar">
         <div>请选择上传图片文件</div>
     </ng-template>

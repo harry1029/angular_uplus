@@ -1,5 +1,5 @@
 export interface ScheduleSetup {
-    id: number;	//personalId
+    id: number;	//personId
     startDate?: Date;
     endDate?: Date;
     sunday?: number;

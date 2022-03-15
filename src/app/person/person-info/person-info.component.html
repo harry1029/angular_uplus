@@ -1,0 +1,78 @@
+<p-toast position="top-left"></p-toast>
+<div class="card-header">
+  <div style="display: flex; justify-content:center; align-items: center;">
+    <div>
+      <a routerLink="{{goProfilePhoto()}}" title="Change Profile Photo">
+        <div>
+          <img class="portrait-size"
+               alt="portrait"
+               src="{{profilePic}}" />
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="card-main background-scheme-vertical_1" style=" color: white;">
+  <div style="padding: 15px 40px 10px 10px; width: 100%">
+    <div style="float: right;">
+      <a [routerLink]="['/person/edit', userId]">
+        <i class="pi pi-pencil" style="color: white; font-size: 20px;"></i>
+      </a>
+    </div>
+  </div>
+
+  <div style="padding: 20px 10px 0px; width: 100%;" class="flex-direction-row flex-justify-content-space-between">
+    <div class="block-two-in-line">
+      <span class="common_label_row_dark_back">Name:&nbsp;</span><span class="common_text">{{personName}}</span>
+    </div>
+    <div class="block-two-in-line">
+      <span class="common_label_row_dark_back">Gender:&nbsp;</span><span class="common_text">{{genderName}}</span>
+    </div>
+  </div>
+
+  <div style="padding: 10px 10px 0px; width: 100%" class="flex-direction-row flex-justify-content-space-between">
+    <div class="block-two-in-line">
+      <span class="common_label_row_dark_back">Birth Day:&nbsp;</span><span class="common_text">{{birthData}}</span>
+    </div>
+    <div class="block-two-in-line">
+      <span class="common_label_row_dark_back"></span><span class="common_text"></span>
+    </div>
+  </div>
+
+  <div style="padding: 10px 10px 0px; width: 100%" class="flex-direction-row flex-justify-content-space-between">
+    <div class="block-two-thirds-in-line">
+      <span class="common_label_row_dark_back">Tel:&nbsp;</span><span class="common_text">{{phone}}</span>
+    </div>
+    <div class="block-three-in-line">
+      <span class="common_text_s" style="color: lightgray" *ngIf="phoneConfirmed > 0 && phone.length > 1">Verified</span>
+      <span class="common_text_s" style="color: lightgray" *ngIf="phoneConfirmed == 0 && phone.length > 1">Verification needed</span>
+    </div>
+  </div>
+
+  <div style="padding: 10px 10px 0px; width: 100%" class="flex-direction-row flex-justify-content-space-between">
+    <div class="block-two-thirds-in-line">
+      <span class="common_label_row_dark_back">Email:&nbsp;</span><span class="common_text">{{email}}</span>
+      <a style="cursor: pointer; color: blue; text-decoration: underline; font-size: 12px; padding-left: 10px" (click)="verifyEmail()"
+         *ngIf="emailConfirmed == 0 && email.length > 5">Verify Now</a>
+    </div>
+    <div class="block-three-in-line">
+      <span class="common_text_s" style="color: lightgray" *ngIf="emailConfirmed > 0 && email.length > 5">Verified</span>
+      <div class="common_text_s" style="color: lightgray" *ngIf="emailConfirmed == 0 && email.length > 5">Verification needed</div>
+    </div>
+  </div>
+
+  <div style="padding: 10px 10px 0px; width: 100%; " class="flex-direction-row flex-justify-content-space-between">
+    <div>
+      <span class="common_label_row_dark_back">Address:&nbsp;</span><span class="common_text">
+        {{streetName}},&nbsp;{{cityName}},&nbsp;{{provinceName}},&nbsp;{{postalCode}}
+      </span>
+    </div>
+  </div>
+
+  <div style="padding: 10px 10px 20px; width: 100%" class="flex-direction-row flex-justify-content-space-between">
+    <div>
+      <span class="common_label_row_dark_back">Language:&nbsp;</span><span class="common_text">{{languages}}</span>
+    </div>
+  </div>
+
+</div>

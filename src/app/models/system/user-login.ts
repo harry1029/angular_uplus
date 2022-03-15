@@ -1,6 +1,6 @@
 export interface UserLogin {
     userId: number;
-    userType?: number;   //1—ß‘±£¨21ΩÃ¡∑
+    userType?: number;   
     areaId?: number;
     userName?: string;
     password?: string;

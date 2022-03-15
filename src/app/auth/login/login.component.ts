@@ -10,7 +10,7 @@ import { SocialUser } from "angularx-social-login";
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 
-import { PersonalInfoService } from '../../services/system/personal-info.service';
+import { PersonInfoService } from '../../services/system/person-info.service';
 import { CellPhoneService } from '../../services/system/cell-phone.service';
 import { AuthService } from '../auth.service';
 import { CodeValue } from '../../models/system/code-value';
@@ -20,7 +20,7 @@ import { UserLogin } from '../../models/system/user-login';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [MessageService, CellPhoneService, PersonalInfoService]
+  providers: [MessageService, CellPhoneService, PersonInfoService]
 })
 
 export class LoginComponent implements OnInit {
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private cellPhoneService: CellPhoneService,
-    private personalInfoService: PersonalInfoService,
+    private personInfoService: PersonInfoService,
     private router: Router,
     private messageService: MessageService,
     private location: Location,
@@ -78,12 +78,12 @@ export class LoginComponent implements OnInit {
     this.authService.login(userLogin).subscribe(userLogin => {
       if (userLogin.userId > 0) {
         //检查是否已填写个人信息
-        this.personalInfoService.checkPersonalInfoByUserId(userLogin.userId).subscribe(iRet => {
+        this.personInfoService.checkPersonInfoByUserId(userLogin.userId).subscribe(iRet => {
           // Get the redirect URL from our auth service
           // If no redirect has been set, use the default
           let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/home';
           if (iRet <= 0) {        //个人信息未填写
-            redirect = `/personal/edit/${userLogin.userId}`;
+            redirect = `/person/edit/${userLogin.userId}`;
           }
 
           // Set our navigation extras object

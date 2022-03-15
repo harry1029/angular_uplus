@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
 import { MessageService } from 'primeng/api';
@@ -37,7 +37,7 @@ export class OrgTreeComponent implements OnInit {
     private getOrgTree() {
         this.organizationService.getOrgTree(1)
             .subscribe(orgTree => {
-                this.items = orgTree.organization;
+                this.items = orgTree.organizations;
                 this.defined()
             })
     }
@@ -52,8 +52,8 @@ export class OrgTreeComponent implements OnInit {
                 children: null
             }
             data[i] = node;
-            if (org[i].organization != null) {
-                node.children = this.exchange(org[i].organization);
+            if (org[i].organizations != null) {
+                node.children = this.exchange(org[i].organizations);
             }
         }
         return data;

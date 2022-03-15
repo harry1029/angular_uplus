@@ -1,4 +1,4 @@
-﻿<p-toast position="top-center"></p-toast>
+<p-toast position="top-center"></p-toast>
 <p-toast position="top-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
     <ng-template let-message pTemplate="message">
         <div class="confirm-box-container">
@@ -51,7 +51,7 @@
         </tr>
         <tr>
             <td>序号:</td>
-            <td>{{this.item.order}}</td>
+            <td>{{this.item.sequence}}</td>
         </tr>
         <tr>
             <td>单位名称:</td>
@@ -59,27 +59,19 @@
         </tr>
         <tr>
             <td>英文名称:</td>
-            <td>{{this.item.enName}}</td>
+            <td>{{this.item.originalName}}</td>
         </tr>
         <tr>
             <td>单位代码:</td>
-            <td>{{this.item.orgCode}}</td>
-        </tr>
-        <tr>
-            <td>分公司标记:</td>
-            <td>{{this.item.divisionFlag}}</td>
-        </tr>
-        <tr>
-            <td>地址:</td>
-            <td>{{this.item.address}}</td>
+            <td>{{this.item.code}}</td>
         </tr>
         <tr>
             <td>负责人:</td>
-            <td>{{this.item.principal}}</td>
+            <td>{{this.item.personInCharge}}</td>
         </tr>
         <tr>
             <td>联系人:</td>
-            <td>{{this.item.secretary}}</td>
+            <td>{{this.item.contact}}</td>
         </tr>
         <tr>
             <td>电话:</td>
@@ -91,11 +83,11 @@
         </tr>
         <tr>
             <td>Email:</td>
-            <td>{{this.item.emailAddress}}</td>
+            <td>{{this.item.email}}</td>
         </tr>
         <tr>
             <td>Web网址:</td>
-            <td>{{this.item.webAddress}}</td>
+            <td>{{this.item.website}}</td>
         </tr>
         <tr>
             <td>描述:</td>

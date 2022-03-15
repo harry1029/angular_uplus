@@ -6,22 +6,22 @@
       <div style="font-size: 22px; color: black; padding: 10px;">Sige Up Success! </div>
       <div style="font-size: 22px; color: black; padding: 10px;">U+ Education Welcome</div>
       <div style="font-size: 16px; color: black; padding: 10px;" *ngIf="authService.userClaims">{{authService.userClaims.nickName}}</div>
-      <div style="font-size: 16px; color: black; padding: 10px;" *ngIf="personalInfo">Email: {{personalInfo.email}}</div>
+      <div style="font-size: 16px; color: black; padding: 10px;" *ngIf="personInfo">Email: {{personInfo.email}}</div>
     </div>
   </div>
 
   <div style="padding: 20px 0px 20px;">
-    <div style="display: flex; align-items: center; width: 90vw; " class="flex-direction-column block-whole-line" *ngIf="personalInfo && personalInfo.emailConfirmed == 0">
+    <div style="display: flex; align-items: center; width: 90vw; " class="flex-direction-column block-whole-line" *ngIf="personInfo && personInfo.emailConfirmed == 0">
       <div style="font-size: 20px; color: maroon; padding: 10px;">Verify your email</div>
       <div style="font-size: 16px; color: maroon; padding: 10px;">
         <span>
-          Enter the 6-digit code sent to {{personalInfo.email}}.
+          Enter the 6-digit code sent to {{personInfo.email}}.
           Don’t see the email?
           <a class='btn' style="cursor: pointer; color: blue; text-decoration: underline; " (click)="sendCode()">Send a new code.</a>
         </span>
       </div>
     </div>
-    <div style="display: flex; align-items: center; width: 90vw; " class="flex-direction-column block-whole-line" *ngIf="personalInfo && personalInfo.emailConfirmed > 0">
+    <div style="display: flex; align-items: center; width: 90vw; " class="flex-direction-column block-whole-line" *ngIf="personInfo && personInfo.emailConfirmed > 0">
       <div style="font-size: 16px; color: maroon; padding: 10px;">
         <span>
           Email address has been verified.
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div style="padding: 5px 0px;"  *ngIf="personalInfo && personalInfo.emailConfirmed == 0">
+  <div style="padding: 5px 0px;"  *ngIf="personInfo && personInfo.emailConfirmed == 0">
     <div style="background-color: rgba(255,255,255,0.5); display: flex; align-items: center; font-size: 14px; width: 90vw; " class="border-radius-common flex-direction-row block-whole-line">
       <i class="pi pi-key " style="padding-left: 10px; color: white; font-size: 24px; "></i>
       <span class="block-height-common " style="padding-left: 10px"></span>
@@ -50,7 +50,7 @@
     <div style="align-items: flex-start; font-size: 12px; width: 90vw; " class="flex-direction-column block-whole-line">
       <div style="font-size: 16px; color: black; padding-left: 10px;">Tell Us About Yourself, This more information will help us serve you better.</div>
       <br /><br /><br />
-      <button pButton pRipple type="button" label="Click to complete your personal information" (click)="goEdit()" class="p-button-text" style="text-decoration: underline; color: blue"></button>
+      <button pButton pRipple type="button" label="Click to complete your person information" (click)="goEdit()" class="p-button-text" style="text-decoration: underline; color: blue"></button>
       <br /><br />
       <button pButton pRipple type="button" label="Go Home" (click)="goHome()" class="p-button-text" style="text-decoration: underline; color: blue"></button>
     </div>

@@ -6,7 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { HandleHttpErrorService } from '../system/handle-http-error.service';
 import { ScheduleSetup } from '../../models/system/schedule-setup';
-import { PersonalCalendar } from '../../models/system/personal-calendar';
+import { PersonCalendar } from '../../models/system/person-calendar';
 
 @Injectable()
 export class ScheduleService {
@@ -27,16 +27,16 @@ export class ScheduleService {
         );
     }
 
-    getPersonalWeekSchedule(personalId: number, date: number): Observable<PersonalCalendar[]> {
-        return this.http.get<PersonalCalendar[]>(`${this.url}/hs/${personalId}?dt=weekcalendar&date=${date}`).pipe(
-            catchError(this.handleHttpErrorService.handleError<PersonalCalendar[]>('ScheduleService.getTrainerWeekSchedule'))
+    getPersonWeekSchedule(personId: number, date: number): Observable<PersonCalendar[]> {
+        return this.http.get<PersonCalendar[]>(`${this.url}/hs/${personId}?dt=weekcalendar&date=${date}`).pipe(
+            catchError(this.handleHttpErrorService.handleError<PersonCalendar[]>('ScheduleService.getTrainerWeekSchedule'))
         );
     }
 
-    //统计个人日历记录数，用于判断是否设置过日程
-    CountPersonalCalendarsByPersonalId(personalId: number): Observable<number> {
-        return this.http.get<number>(`${this.url}/hs/${personalId}?dt=countcalendar`).pipe(
-            catchError(this.handleHttpErrorService.handleError<number>('ScheduleService.CountPersonalCalendarsByPersonalId'))
+    //脥鲁录脝赂枚脠脣脠脮脌煤录脟脗录脢媒拢卢脫脙脫脷脜脨露脧脢脟路帽脡猫脰脙鹿媒脠脮鲁脤
+    CountPersonCalendarsByPersonId(personId: number): Observable<number> {
+        return this.http.get<number>(`${this.url}/hs/${personId}?dt=countcalendar`).pipe(
+            catchError(this.handleHttpErrorService.handleError<number>('ScheduleService.CountPersonCalendarsByPersonId'))
         );
     }
 }

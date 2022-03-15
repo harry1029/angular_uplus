@@ -1,0 +1,126 @@
+<p-toast position="top-left"></p-toast>
+
+<div class="main-petty-content" style="background-color: #3D3D64">
+  <div class="card-title block-whole-line" style="padding: 22px 0px 5px; color:white;">
+    Your Information
+  </div>
+  <div class="content_description_text block-whole-line" style="color: white">
+    Person Information
+  </div>
+
+
+  <div class="block-whole-line" style="padding: 20px 0px 10px; display: flex; justify-content: center; align-items: center;">
+    <div>
+      <a routerLink="{{goProfilePhoto()}}" title="Change Profile Photo">
+        <div>
+          <img class="portrait-size"
+               alt="portrait"
+               src="{{profilePic}}" />
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;" class="block-whole-line flex-direction-row common_text_b">
+    <div class="block-two-in-line">
+      <span style="padding-left: 10px">Family Name</span>
+      <span style="padding-left: 2px; color: red;">*</span>
+    </div>
+    <div style="margin-left: 15px; padding-left: 10px" class="block-two-in-line">
+      <span>Given Name</span>
+      <span style="padding-left: 2px; color: red;">*</span>
+    </div>
+  </div>
+
+  <div style="padding: 0px 0px 10px;" class="block-whole-line flex-direction-row">
+    <div style="background-color: rgba(255,255,255,0.5);" class="border-radius-common block-two-in-line">
+      <input type="text" id="familyName" pInputText [(ngModel)]="familyName" maxlength="30"
+             class="border-radius-common block-short-height-common block-two-in-line border-background-transparent">
+    </div>
+    <div style="margin-left: 15px; background-color: rgba(255,255,255,0.5);" class="border-radius-common block-two-in-line">
+      <input type="text" id="givenName" pInputText [(ngModel)]="givenName" maxlength="30"
+             class="border-radius-common block-short-height-common block-two-in-line border-background-transparent">
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;" class="block-whole-line flex-direction-row common_text_b">
+    <div class="block-two-in-line">
+      <span style="padding-left: 10px">Gender</span>
+    </div>
+    <div style="margin-left: 15px; padding-left: 10px" class="block-two-in-line">
+      <span>Birthday</span>
+    </div>
+  </div>
+
+  <div style="padding: 0px 0px 10px;" class="block-whole-line flex-direction-row">
+    <div>
+      <p-dropdown inputId="sexCode" [autoDisplayFirst]="true" [options]="sexList"
+                  [(ngModel)]="sexCode" optionLabel="keyCode" required="true"
+                  styleClass="border-radius-common block-short-height-common block-two-in-line border-background-input"></p-dropdown>
+    </div>
+    <div style="margin-left: 15px;">
+      <p-calendar [(ngModel)]="birthDay" [showIcon]="false" dateFormat="yy-mm-dd" inputId="birthDay"
+                  [monthNavigator]="true" [yearNavigator]="true" yearRange="1950:2022"
+                  [inputStyleClass]="'border-radius-common block-short-height-common border-background-input'" [minDate]="minDate" [maxDate]="maxDate" [styleClass]="'block-two-in-line'"
+                  [readonlyInput]="true"></p-calendar>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px;" class="block-whole-line flex-direction-row common_text_b">
+    <div class="block-two-in-line">
+      <span style="padding-left: 10px; color: white;">Email</span>
+      <span style="padding-left: 5px; color: goldenrod;" *ngIf="emailConfirmed > 0">( Verified )</span>
+    </div>
+  </div>
+
+  <div style="padding: 0px 0px 10px;" class="block-whole-line flex-direction-row">
+    <div *ngIf="emailConfirmed > 0">
+      <input type="email" id="email" pInputText [(ngModel)]="email" maxlength="30" disabled
+             class="border-radius-common block-short-height-common block-whole-line border-background-input">
+    </div>
+    <div *ngIf="emailConfirmed == 0">
+      <input type="email" id="email" pInputText [(ngModel)]="email" maxlength="30" 
+             class="border-radius-common block-short-height-common block-whole-line border-background-input">
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px;" class="block-whole-line">
+    <app-place-autocomplete #addressPlace [addtessTitle]="addtessTitle" [initialAddress]="currentAddress"
+                            [country]="currentCountry" [province]="currentProvince" [selectedCity]="selectedCity" [postcode]="currentPostcode">
+    </app-place-autocomplete>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;" class="block-whole-line flex-direction-row common_text_b">
+    <div class="block-two-in-line">
+      <span style="padding-left: 10px">Languages you can use</span>
+    </div>
+  </div>
+
+  <div style="padding: 0px 0px 10px;" class="block-whole-line flex-direction-row">
+    <div>
+      <p-multiSelect [options]="languageList" [(ngModel)]="languages" optionLabel="languageName" optionValue="id" maxSelectedLabels="5"
+                     styleClass="border-radius-common block-short-height-common block-whole-line border-background-input">
+      </p-multiSelect>
+    </div>
+  </div>
+
+  <div style="padding:20px 0px; color: white" class="block-whole-line" *ngIf="buttonFlag">
+    <button pButton pRipple type="button" label="Save" (click)="submit()" style="color: white; "
+            class="button-rounded-common-on-dark block-two-thirds-in-line background-scheme-horizontal"></button>
+    <button pButton pRipple type="button" label="Cancel" (click)="goBack()" style="color: white; margin-left: 10px"
+            class="button-rounded-common-on-dark block-three-in-line background-scheme-horizontal"></button>
+  </div>
+  <div style="padding:20px 0px; " class="block-whole-line" *ngIf="!buttonFlag">
+    <div style="display: flex; flex-direction: column; width: 100%">
+      <div style="padding: 5px 10px">
+        <span class="common_text_b" style="color: hotpink">Please wait, the data is being updated...</span>
+      </div>
+      <div style="padding: 5px 10px;">
+        <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <br />
+</div>

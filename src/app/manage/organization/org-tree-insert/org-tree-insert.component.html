@@ -1,83 +1,75 @@
-﻿<p-toast position="top-left"></p-toast>
+<p-toast position="top-left"></p-toast>
 <div class="card-area" style="background-image: none; background-color:white">
-    <div class="small-title">
-        添加单位信息
-    </div>
-    <table style="font-size: 14px; padding-top:10px" *ngIf="item">
-        <tr>
-            <td class="label-field">上级单位:</td>
-            <td *ngIf="parentItem">{{parentItem.name}}</td>
-        </tr>
-        <tr>
-            <td>上级单位Id:</td>
-            <td>{{item.parentId}}</td>
-        </tr>
-        <tr>
-            <td>单位名称:</td>
-            <td><input [(ngModel)]="this.item.name" class="input-field" maxlength=128 /></td>
-        </tr>
-        <tr>
-            <td>单位Id:</td>
-            <td>{{this.item.id}}</td>
-        </tr>
-        <tr>
-            <td>状态:</td>
-            <td><input type="checkbox" [(ngModel)]="status" class="input-field" /></td>
-        </tr>
-        <tr>
-            <td>序号:</td>
-            <td><input type="number" [(ngModel)]="this.item.order" class="input-field" max=2147483648 min=0 /></td>
-        </tr>
-        <tr>
-            <td>英文名称:</td>
-            <td><input [(ngModel)]="this.item.enName" class="input-field" maxlength=128 /></td>
-        </tr>
-        <tr>
-            <td>单位代码:</td>
-            <td><input [(ngModel)]="this.item.orgCode" class="input-field" maxlength=32 /></td>
-        </tr>
-        <tr>
-            <td>分公司标记:</td>
-            <td><input type="checkbox" [(ngModel)]="divisionFlag" class="input-field" /></td>
-        </tr>
-        <tr>
-            <td>地址:</td>
-            <td><input [(ngModel)]="this.item.address" class="input-field" maxlength=256 /></td>
-        </tr>
-        <tr>
-            <td>负责人:</td>
-            <td><input [(ngModel)]="this.item.principal" class="input-field" maxlength=128 /></td>
-        </tr>
-        <tr>
-            <td>联系人:</td>
-            <td><input [(ngModel)]="this.item.secretary" class="input-field" maxlength=128 /></td>
-        </tr>
-        <tr>
-            <td>电话:</td>
-            <td><input [(ngModel)]="this.item.phone1" class="input-field" maxlength=60 /></td>
-        </tr>
-        <tr>
-            <td>传真:</td>
-            <td><input [(ngModel)]="this.item.fax" class="input-field" maxlength=60 /></td>
-        </tr>
-        <tr>
-            <td>Email:</td>
-            <td><input [(ngModel)]="this.item.emailAddress" class="input-field" maxlength=128 /></td>
-        </tr>
-        <tr>
-            <td>Web网址:</td>
-            <td><input [(ngModel)]="this.item.webAddress" class="input-field" maxlength=128 /></td>
-        </tr>
-        <tr>
-            <td>描述:</td>
-            <td>
-                <textarea [(ngModel)]="this.item.description" class="input-field" maxlength=2048 cols="40" rows="5"
-                          style="width:200px; height:50px;"></textarea>
-            </td>
-        </tr>
-    </table>
-    <div style="margin: 5px 0px;" *ngIf="buttonFlag">
-        <button pButton pRipple type="button" label="确认" (click)="submit()" style="margin-right: .5rem; font-size:14px"></button>
-        <button pButton pRipple type="button" label="取消" (click)="goBack()" style="margin-left: .5rem; font-size:14px"></button>
-    </div>
+  <div class="small-title">
+    添加单位信息
+  </div>
+  <table style="font-size: 14px; padding-top:10px" *ngIf="item">
+    <tr>
+      <td class="label-field">上级单位:</td>
+      <td *ngIf="parentItem">{{parentItem.name}}</td>
+    </tr>
+    <tr>
+      <td>上级单位Id:</td>
+      <td>{{item.parentId}}</td>
+    </tr>
+    <tr>
+      <td>单位名称:</td>
+      <td><input [(ngModel)]="this.item.name" class="input-field" maxlength=128 /></td>
+    </tr>
+    <tr>
+      <td>单位Id:</td>
+      <td>{{this.item.id}}</td>
+    </tr>
+    <tr>
+      <td>状态:</td>
+      <td><input type="checkbox" [(ngModel)]="status" class="input-field" /></td>
+    </tr>
+    <tr>
+      <td>序号:</td>
+      <td><input type="number" [(ngModel)]="this.item.sequence" class="input-field" max=2147483648 min=0 /></td>
+    </tr>
+    <tr>
+      <td>英文名称:</td>
+      <td><input [(ngModel)]="this.item.originalName" class="input-field" maxlength=128 /></td>
+    </tr>
+    <tr>
+      <td>单位代码:</td>
+      <td><input [(ngModel)]="this.item.code" class="input-field" maxlength=32 /></td>
+    </tr>
+    <tr>
+      <td>负责人:</td>
+      <td><input [(ngModel)]="this.item.personInCharge" class="input-field" maxlength=128 /></td>
+    </tr>
+    <tr>
+      <td>联系人:</td>
+      <td><input [(ngModel)]="this.item.contact" class="input-field" maxlength=128 /></td>
+    </tr>
+    <tr>
+      <td>电话:</td>
+      <td><input [(ngModel)]="this.item.phone1" class="input-field" maxlength=60 /></td>
+    </tr>
+    <tr>
+      <td>传真:</td>
+      <td><input [(ngModel)]="this.item.fax" class="input-field" maxlength=60 /></td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td><input [(ngModel)]="this.item.email" class="input-field" maxlength=128 /></td>
+    </tr>
+    <tr>
+      <td>Web网址:</td>
+      <td><input [(ngModel)]="this.item.website" class="input-field" maxlength=128 /></td>
+    </tr>
+    <tr>
+      <td>描述:</td>
+      <td>
+        <textarea [(ngModel)]="this.item.description" class="input-field" maxlength=2048 cols="40" rows="5"
+                  style="width:200px; height:50px;"></textarea>
+      </td>
+    </tr>
+  </table>
+  <div style="margin: 5px 0px;" *ngIf="buttonFlag">
+    <button pButton pRipple type="button" label="确认" (click)="submit()" style="margin-right: .5rem; font-size:14px"></button>
+    <button pButton pRipple type="button" label="取消" (click)="goBack()" style="margin-left: .5rem; font-size:14px"></button>
+  </div>
 </div>

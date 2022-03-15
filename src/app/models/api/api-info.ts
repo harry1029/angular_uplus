@@ -1,9 +1,9 @@
 export interface ApiInfo {
-  id: number;
-  status: number;
+  id?: number;
+  status?: number;
   apiMethod: number;
   apiPath: string;
-  pathParameterRequired: number;
+  pathParameterRequired?: number;
   pathParameter?: string;
   queryParameter?: string;
   queryParameter1?: string;

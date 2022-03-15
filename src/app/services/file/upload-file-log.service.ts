@@ -21,7 +21,7 @@ export class UploadFileLogService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-    //所有有效文件
+    //脣霉脫脨脫脨脨搂脦脛录镁
     getAvailableUploadFileLogStrus(): Observable<UploadFileLogStru[]> {
         var queryUrl: string = this.url + "/hs?dt=ufl";
         return this.http.get<UploadFileLogStru[]>(queryUrl)
@@ -31,7 +31,7 @@ export class UploadFileLogService {
             );
     }
 
-    //所有文件
+    //脣霉脫脨脦脛录镁
     getUploadFileLogStrus(): Observable<UploadFileLogStru[]> {
         var queryUrl: string = this.url + "/hs?dt=ufla";
         return this.http.get<UploadFileLogStru[]>(queryUrl)
@@ -41,7 +41,7 @@ export class UploadFileLogService {
             );
     }
 
-    //删除指定ID的文件
+    //脡戮鲁媒脰赂露篓ID碌脛脦脛录镁
     deleteUploadFileLogStru(uploadFileLogStru: UploadFileLogStru | number): Observable<Number> {
         const id = typeof uploadFileLogStru === 'number' ? uploadFileLogStru : uploadFileLogStru.id;
         const url = `${this.url}/hs/${id}?dt=ufl`;
@@ -51,17 +51,17 @@ export class UploadFileLogService {
         );
     }
 
-    //数据文件，头像裁剪图片
+    //脢媒戮脻脦脛录镁拢卢脥路脧帽虏脙录么脥录脝卢
     uploadFileData(body: FormData): Observable<ReturnMessage> {
         return this.http.post<ReturnMessage>(this.url + `/filedataupload?dt=profilephoto&uid=${body.get("userid")}&picturetype=${body.get("picturetype")}`, body).pipe(
             catchError(this.handleHttpErrorService.handleError<ReturnMessage>(`UploadFileLogService: uploadFileData userid=${body.get("userid")}`))
         );
     }
 
-    //数据文件，个人证照图片
-    uploadPersonalFileData(body: FormData): Observable<ReturnMessage> {
-        return this.http.post<ReturnMessage>(this.url + `/filedataupload?dt=personalphoto&pid=${body.get("personalId")}&picturetype=${body.get("picturetype")}&pictureflag=${body.get("pictureflag")}`, body).pipe(
-            catchError(this.handleHttpErrorService.handleError<ReturnMessage>(`UploadFileLogService: uploadPersonalFileData userid=${body.get("userid")}`))
+    //脢媒戮脻脦脛录镁拢卢赂枚脠脣脰陇脮脮脥录脝卢
+    uploadPersonFileData(body: FormData): Observable<ReturnMessage> {
+        return this.http.post<ReturnMessage>(this.url + `/filedataupload?dt=personphoto&pid=${body.get("personId")}&picturetype=${body.get("picturetype")}&pictureflag=${body.get("pictureflag")}`, body).pipe(
+            catchError(this.handleHttpErrorService.handleError<ReturnMessage>(`UploadFileLogService: uploadPersonFileData userid=${body.get("userid")}`))
         );
     }
 }
