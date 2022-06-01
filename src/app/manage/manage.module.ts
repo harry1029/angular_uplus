@@ -13,6 +13,11 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FileUploadModule } from 'primeng/fileupload';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CalendarModule } from 'primeng/calendar';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ImageModule } from 'primeng/image';
+
+import { HttpClientModule } from '@angular/common/http';
 
 import { ManageRoutingModule } from './manage-routing.module';
 import { MenuItemTreeComponent } from './menu-item/menu-item-tree/menu-item-tree.component';
@@ -92,7 +97,12 @@ import { FaqDetailComponent } from './faqs/faq-detail/faq-detail.component';
     TreeModule,
     TableModule,
     ManageRoutingModule,
-    CalendarModule
+    CalendarModule,
+    InputNumberModule,
+    HttpClientModule,
+    MultiSelectModule,
+    ImageModule,
+    
   ]
 })
 export class ManageModule { }

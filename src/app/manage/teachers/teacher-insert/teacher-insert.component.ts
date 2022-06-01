@@ -8,17 +8,36 @@ import { MessageService } from 'primeng/api';
 import { PersonInfo } from 'src/app/models/system/person-info';
 import { PersonInfoService } from 'src/app/services/system/person-info.service';
 
+import { CellPhoneService } from 'src/app/services/system/cell-phone.service';
+import { CodeConversionService } from 'src/app/services/system/code-conversion.service';
+import { CodeValue } from 'src/app/models/system/code-value';
+
+import { LanguageService } from 'src/app/services/system/language.service';
+import { LanguageInfo } from 'src/app/models/system/language-info';
+
+
 
 @Component({
   selector: 'app-teacher-insert',
   templateUrl: './teacher-insert.component.html',
   styleUrls: ['./teacher-insert.component.css'],
-  providers: [PersonInfoService, MessageService],
+  providers: [PersonInfoService, CellPhoneService, MessageService, CodeConversionService, LanguageService],
 })
 export class TeacherInsertComponent implements OnInit {
 
   teacher: PersonInfo;
-  gender: { id: number, type: string } [];
+  gender: { id: number, type: string } [] = [
+    {id: 0, type: "Male"},
+    {id: 1, type: "Female"},
+    {id: 2, type: "Transgender"},
+    {id: 3, type: "Non-binary"},
+    {id: 4, type: "Prefer not to say"},
+  ];
+
+  phoneAreaCodeList: CodeValue[];
+  languageList: LanguageInfo[];
+
+  uploadedFiles: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -27,19 +46,33 @@ export class TeacherInsertComponent implements OnInit {
     private location: Location,
     private primengConfig: PrimeNGConfig,
     private messageService: MessageService,
+    private cellPhoneService: CellPhoneService,
+    private codeConversionService: CodeConversionService,
+    private languageService: LanguageService
   ) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
+    this.cellPhoneService.getAvailablePhoneAreaCodes().subscribe(codes => {
+      this.phoneAreaCodeList = codes;
+    })
+    this.languageService.getLanguageInfos().subscribe(codes => {
+      this.languageList = codes;
+      console.log(codes);
+    })
+
     this.teacher = {
       id: 0, firstName: "", lastName: "", languages: []
     };
-    this.gender = [
-      {id: 0, type: "Male"},
-      {id: 1, type: "Female"},
-      {id: 2, type: "Transgender"},
-      {id: 3, type: "Non-binary"},
-      {id: 4, type: "Prefer not to say"},
-    ];
+  }
+
+  myUploader(event) {
+    for(let file of event.files) {
+        this.uploadedFiles.push(file);
+    }
+
+    console.log(this.uploadedFiles)
+    this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
   }
 
   submit() {
@@ -50,6 +83,7 @@ export class TeacherInsertComponent implements OnInit {
     // }
     this.personInfoService.addTeacher(this.teacher).subscribe(iRet => {
       if (iRet > 0) {
+        console.log(this.teacher);
         this.router.navigate(['/manage/teachers']);
       } else if (iRet == 0) {
         this.messageService.add({ severity: 'info', detail: "Save failed." });

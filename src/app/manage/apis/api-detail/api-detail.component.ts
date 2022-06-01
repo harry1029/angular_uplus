@@ -67,10 +67,10 @@ export class ApiDetailComponent implements OnInit {
       console.log(this.api);
       this.test();
     })
-  }
+  };
 
   goBack(): void {
     this.location.back();
-  }
+  };
 
 }

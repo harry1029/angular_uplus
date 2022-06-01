@@ -16,9 +16,9 @@
       </div>
       <div class="line">
         <button pButton pRipple type="button" (click)="onConfirm()" label="Yes"
-                class="button-square-common-on-white block-small-in-line"></button>
+          class="button-square-common-on-white block-small-in-line"></button>
         <button pButton pRipple type="button" (click)="onReject()" label="No" style="background-color: SlateGray;"
-                class="button-square-common-on-white block-small-in-line"></button>
+          class="button-square-common-on-white block-small-in-line"></button>
       </div>
     </div>
   </ng-template>
@@ -27,7 +27,8 @@
 <div style="padding: 10px; font-size: 22px; font-weight: bold">Teachers Management</div>
 
 <div style="padding:10px">
-  <button pButton pRipple type="button" label="Add new teacher" (click)="insert()" style="background-color: forestgreen; color: white;">
+  <button pButton pRipple type="button" label="Add new teacher" (click)="insert()"
+    style="background-color: forestgreen; color: white;">
   </button>
 </div>
 
@@ -48,24 +49,28 @@
   <ng-template pTemplate="body" let-teacher>
     <tr>
       <td style="text-align: center; padding: 0px 5px">
-        <button pButton pRipple type="button" (click)="detail(teacher)" title="Detail" 
+        <button pButton pRipple type="button" (click)="detail(teacher)" title="Detail"
           class="p-button-rounded p-button-secondary p-button-text">{{teacher.id}}</button>
       </td>
       <td style="text-align: center; padding: 0px 5px">{{teacher.firstName}}</td>
       <td style="text-align: center; padding: 0px 5px">{{teacher.lastName}}</td>
-      <td style="text-align: left; padding: 0px 5px">{{teacher.position}}</td>
-      <td style="text-align: center; padding: 0px 5px">{{teacher.gender}}</td>
-      <td style="text-align: left; padding: 0px 5px">{{teacher.email}}</td>
-      <td style="text-align: left; padding: 0px 5px">{{teacher.startDate}}</td>
-      <td style="text-align: left; padding: 0px 5px">{{teacher.endDate}}</td>
-      <td style="text-align: center; padding: 0px 5px">{{teacher.languages}}</td>
-      <td style="padding: 0px 5px; width: 25px">
-        <button pButton pRipple type="button" icon="pi pi-trash" (click)="deleteConfirm(teacher)" title="Delete"
-                class="p-button-rounded p-button-secondary p-button-text" style=" height: 20px; width: 20px;"></button>
+      <td style="text-align: center; padding: 0px 5px">{{teacher.position}}</td>
+      <td style="text-align: center; padding: 0px 5px">{{gender[teacher.gender].type}}</td>
+      <td style="text-align: center; padding: 0px 5px">{{teacher.email}}</td>
+      <td style="text-align: center; padding: 0px 5px">{{teacher.startDate}}</td>
+      <td style="text-align: center; padding: 0px 5px">{{teacher.endDate}}</td>
+      <td style="text-align: center; padding: 0px 5px">{{teacher.languagesDisplay}}</td>
+
+      <td style="padding: 0px 5px; width: 25px;">
+        <p-button label="Manage Files" icon="pi pi-plus" (click)="attachment(teacher)"></p-button>
       </td>
       <td style="padding: 0px 5px; width: 25px">
         <button pButton pRipple type="button" icon="pi pi-pencil" (click)="edit(teacher)" title="Edit"
-                class="p-button-rounded p-button-secondary p-button-text" style=" height: 20px; width: 20px;"></button>
+          class="p-button-rounded p-button-secondary p-button-text" style=" height: 20px; width: 20px;"></button>
+      </td>
+      <td style="padding: 0px 5px; width: 25px">
+        <button pButton pRipple type="button" icon="pi pi-trash" (click)="deleteConfirm(teacher)" title="Delete"
+          class="p-button-rounded p-button-secondary p-button-text" style=" height: 20px; width: 20px;"></button>
       </td>
     </tr>
   </ng-template>

@@ -1,1 +1,129 @@
-<p>tescher-edit works!</p>
+<p-toast position="top-left"></p-toast>
+
+<div class="main-petty-content" style="background-color: #3D3D64">
+
+  <div style="padding: 30px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">User Code :</span>
+      <input type="text" id="firstName" pInputText [(ngModel)]="teacher.userCode" maxlength="100" style="width: 250px"
+        required>
+      <span style="padding-left: 10px; padding-right: 10px">Login Phone :</span>
+      <input type="text" id="firstName" pInputText [(ngModel)]="teacher.loginPhone" maxlength="100" style="width: 250px"
+        required>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">First Name :</span>
+      <input type="text" id="firstName" pInputText [(ngModel)]="teacher.firstName" maxlength="100" style="width: 250px"
+        required>
+      <span style="padding-left: 10px; padding-right: 10px">Last Name :</span>
+      <input type="text" id="lastName" pInputText [(ngModel)]="teacher.lastName" maxlength="100" style="width: 250px"
+        required>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Preferred Name :</span>
+      <input type="text" id="preferredName" pInputText [(ngModel)]="teacher.preferredName" maxlength="100"
+        style="width: 300px">
+      <span style="padding-left: 10px; padding-right: 10px">Gender :</span>
+      <p-dropdown placeholder="Gender" [showClear]="true" [options]="gender" optionLabel="type" optionValue="id"
+        [(ngModel)]="teacher.gender"></p-dropdown>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Phone Area ID :</span>
+      <p-dropdown inputId="phoneAreaCode" [autoDisplayFirst]="true" [options]="phoneAreaCodeList"
+        [(ngModel)]="teacher.phoneAreaId" optionLabel="description" optionValue="id32" [required]="true"></p-dropdown>
+      <span style="padding-left: 10px; padding-right: 10px">Phone Number 1 :</span>
+      <input type="text" id="phoneNumber" pInputText [(ngModel)]="teacher.phoneNumber" maxlength="100"
+        style="width: 150px">
+    </div>
+    <div style="padding: 10px 0px 10px; color: white;">
+      <span style="padding-left: 10px; padding-right: 10px">Phone Number 2 :</span>
+      <input type="text" id="phone2" pInputText [(ngModel)]="teacher.phone2" maxlength="100" style="width: 200px">
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Email :</span>
+      <input type="text" id="email" pInputText [(ngModel)]="teacher.email" maxlength="100" style="width: 300px">
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Emergency Contact :</span>
+      <input type="text" id="emContact" pInputText [(ngModel)]="teacher.emContact" maxlength="100" style="width: 300px">
+      <span style="padding-left: 10px; padding-right: 10px">Emergency Phone :</span>
+      <input type="text" id="emPhone" pInputText [(ngModel)]="teacher.emPhone" maxlength="100" style="width: 150px">
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Self Introduction :</span>
+      <textarea [rows]="3" [cols]="94" pInputTextarea autoResize="autoResize" [(ngModel)]="teacher.selfInfo"
+        style="margin-left: 10px"></textarea>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Position :</span>
+      <input type="text" id="position" pInputText [(ngModel)]="teacher.position" maxlength="100" style="width: 200px">
+      <span style="padding-left: 10px; padding-right: 10px">Start Date :</span>
+      <p-calendar id="startDate" dateFormat="mm-dd-yy" [(ngModel)]="teacher.startDate"></p-calendar>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Languages :</span>
+    </div>
+
+    <div style="padding: 10px 0px 0px 10px">
+      <p-multiSelect [options]="languageList" [(ngModel)]="teacher.languages" defaultLabel="Select Languages" optionLabel="languageName"
+        optionValue="id" display="chip"></p-multiSelect>
+    </div>
+
+  </div>
+
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Description :</span>
+      <textarea [rows]="3" [cols]="94" pInputTextarea autoResize="autoResize" [(ngModel)]="teacher.description"
+        style="margin-left: 10px"></textarea>
+    </div>
+  </div>
+
+  <div class="file-upload" style="padding: 10px; color: white;">
+    <h5>Profile Picture</h5>
+    <p-fileUpload name="profile[]" customUpload="true" (uploadHandler)="myUploader($event)" multiple="multiple"
+      accept="image/*" maxFileSize="10000000">
+      <ng-template pTemplate="content">
+        <ul *ngIf="uploadedFiles.length">
+          <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+        </ul>
+      </ng-template>
+    </p-fileUpload>
+  </div>
+
+
+  <div style="padding:20px 0px; color: white">
+    <button pButton pRipple type="button" label="Save" (click)="submit()" style="color: white; "
+      class="button-rounded-common-on-dark block-two-thirds-in-line background-scheme-horizontal"></button>
+    <button pButton pRipple type="button" label="Cancel" (click)="goBack()" style="color: white; margin-left: 10px"
+      class="button-rounded-common-on-dark block-three-in-line background-scheme-horizontal"></button>
+  </div>
+  <br />
+  <br />
+  <br />
+</div>

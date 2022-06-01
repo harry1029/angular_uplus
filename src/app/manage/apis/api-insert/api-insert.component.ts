@@ -32,17 +32,6 @@ export class ApiInsertComponent implements OnInit {
     private codeConversionService: CodeConversionService,
   ) { }
 
-  test() {
-    this.codeConversionService.getCodeValues(100010)
-      .subscribe(codeList => {
-        console.log("API Method List: ", codeList);
-      });
-    this.codeConversionService.getCodeValue(100010, 2)
-      .subscribe(codeList => {
-        console.log("API Method Value: ", codeList);
-      });
-  }
-
   ngOnInit(): void {
     this.api = {
       id: 0, status: 0, apiMethod: 0, apiPath: "", pathParameterRequired: 0, pathParameter: "",

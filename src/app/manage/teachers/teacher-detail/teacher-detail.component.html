@@ -1,1 +1,90 @@
-<p>tescher-detail works!</p>
+<p-toast position="top-left"></p-toast>
+
+<div class="main-petty-content" style="background-color: #3D3D64">
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">User Code : {{teacher.userCode}}</span>
+    </div>
+  </div>
+
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Login Phone : {{teacher.loginPhone}}</span>
+    </div>
+  </div>
+
+  
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Last Name : {{teacher.lastName}}</span>
+      <span style="padding-left: 50px; padding-right: 10px;">First Name : {{teacher.firstName}}</span>
+      <span style="padding-left: 50px; padding-right: 10px;">Preferred Name : {{teacher.preferredName}}</span>
+      <span style="padding-left: 50px; padding-right: 10px">Gender : {{gender[teacher.gender].type}}</span>
+    </div>
+  </div>
+  
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Phone Area ID : {{teacher.phoneAreaId}}</span>
+      <span style="padding-left: 40px; padding-right: 10px">Phone Number : {{teacher.phone}}</span>
+      <span style="padding-left: 10px; padding-right: 10px">Phone 2 : {{teacher.phone2}}</span>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Email : {{teacher.email}}</span>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Emergency Contact : {{teacher.emContact}}</span>
+      <span style="padding-left: 50px; padding-right: 10px">Emergency Phone : {{teacher.emPhone}}</span>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Position : {{teacher.position}}</span>
+      <span style="padding-left: 50px; padding-right: 10px">Start Date : {{teacher.startDate}}</span>
+      <span style="padding-left: 50px; padding-right: 10px">End Date : {{teacher.endDate}}</span>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Languages : {{teacher.languagesDisplay}}</span>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Self Introduction</span>
+    </div>
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">{{teacher.selfInfo}}</span>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Description</span>
+    </div>
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">{{teacher.description}}</span>
+    </div>
+  </div>
+
+  <div style="padding:20px 0px; color: white">
+    <button pButton pRipple type="button" label="Back" (click)="goBack()" style="color: white; margin-left: 10px"
+      class="button-rounded-common-on-dark block-three-in-line background-scheme-horizontal"></button>
+  </div>
+
+    <br />
+    <br />
+    <br />
+</div>

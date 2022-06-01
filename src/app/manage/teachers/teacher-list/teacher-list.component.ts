@@ -9,6 +9,9 @@ import { environment } from '../../../../environments/environment';
 import { PersonInfo } from 'src/app/models/system/person-info';
 import { PersonInfoService } from 'src/app/services/system/person-info.service';
 
+import { CodeConversionService } from 'src/app/services/system/code-conversion.service';
+
+
 @Component({
   selector: 'app-teacher-list',
   templateUrl: './teacher-list.component.html',
@@ -19,6 +22,13 @@ export class TeacherListComponent implements OnInit {
 
   apiUrl: string = environment.apiServerUrl + "/h";
   teachers: PersonInfo[];
+  gender: { id: number, type: string }[] = [
+    { id: 0, type: "Male" },
+    { id: 1, type: "Female" },
+    { id: 2, type: "Transgender" },
+    { id: 3, type: "Non-binary" },
+    { id: 4, type: "Prefer not to say" },
+  ];
 
   selected: PersonInfo;
 
@@ -50,11 +60,11 @@ export class TeacherListComponent implements OnInit {
         if (deleteN > 0) {
           let message = 'Teacher "' + this.selected.firstName + " " + this.selected.lastName + '" has been successfully deleted.'
           this.messageService.clear();
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: message, life: 10000});
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: message, life: 10000 });
           this.getTeachers();
         } else {
           this.messageService.clear();
-          this.messageService.add({ severity: 'info', summary: 'Info', detail: 'No api has been deleted.', life: 10000});
+          this.messageService.add({ severity: 'info', summary: 'Info', detail: 'No teacher has been deleted.', life: 10000 });
         }
       });
   }
@@ -87,6 +97,11 @@ export class TeacherListComponent implements OnInit {
   detail(teacher: PersonInfo) {
     this.selected = teacher;
     this.router.navigate([`/manage/teacherdetail/${teacher.id}`]);
+  }
+
+  attachment(teacher: PersonInfo) {
+    this.selected = teacher;
+    this.router.navigate([`/manage/teacherattach/${teacher.id}`]);
   }
 
 }

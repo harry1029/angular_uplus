@@ -1,47 +1,64 @@
+<p-toast position="top-left"></p-toast>
 <p>test works!</p>
 <br />
 <br />
 
 <div style="padding:20px 10px; " class="block-whole-line">
-    <button pButton pRipple type="button" label="测试" (click)="test()" style="background-color: {{styleColor}}"
-            class="button-rounded-common-on-white block-whole-line"></button>
+  <button pButton pRipple type="button" label="测试" (click)="test()" style="background-color: {{styleColor}}"
+          class="button-rounded-common-on-white block-whole-line"></button>
 </div>
-
 <br />
 <br />
 
-<p-fileUpload name="file" url="http://localhost:8080/filesupload?uploadtype=301" (onUpload)="onUpload($event)"
+<div>
+  图片附件可直接显示：
+  <img style="width:300px; height: 200px"
+       src="{{apiUrl}}/{{attachmentPath}}" />
+</div>
+<br />
+<br />
+<div>
+  <button (click)="openAttachment()">打开各类型附件</button>
+</div>
+<br />
+<br />
+
+<p-fileUpload name="file" url="{{apiUrl}}/filesupload?uploadtype=311&pid={{personId}}" (onUpload)="onUpload($event)"
               multiple="multiple" accept="image/*" maxFileSize="2097152" fileLimit="5"
               cancelLabel="取消">
-    <ng-template pTemplate="content">
-        <ul *ngIf="uploadedFiles.length">
-            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-        </ul>
-    </ng-template>
-    <ng-template pTemplate="toolbar">
-        <div>请选择上传图片文件，文件尺寸不能超过2M。每次最多上传5个文件。</div>
-    </ng-template>
+  <ng-template pTemplate="content">
+    <ul *ngIf="uploadedFiles.length">
+      <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+    </ul>
+  </ng-template>
+  <ng-template pTemplate="toolbar">
+    <div>请选择上传图片文件，文件尺寸不能超过2M。每次最多上传5个文件。</div>
+  </ng-template>
 </p-fileUpload>
+
+
+<br />
+<br />
 
 <br />
 <br />
 <h5>Basic</h5>
-<p-fileUpload mode="basic" name="file" url="http://localhost:8080/filesupload?uploadtype=302" maxFileSize="16777216" (onUpload)="onUpload($event)" chooseLabel="添加文件">
-    <ng-template pTemplate="toolbar">
-        <div>请选择上传任意格式的文件</div>
-    </ng-template>
+<p-fileUpload mode="basic" name="file" url="{{apiUrl}}/filesupload?uploadtype=312&pid={{personId}}" maxFileSize="16777216" (onUpload)="onUpload($event)" chooseLabel="添加文件">
+  <ng-template pTemplate="toolbar">
+    <div>请选择上传任意格式的文件</div>
+  </ng-template>
 </p-fileUpload>
 <br />
 <br />
-<p-fileUpload #fubauto mode="basic" name="file" url="http://localhost:8080/fileupload?uploadtype=303" accept="image/*" maxFileSize="4194304" (onUpload)="onUpload($event)" [auto]="true" chooseLabel="Browse">
-    <ng-template pTemplate="toolbar">
-        <div>请选择上传图片文件</div>
-    </ng-template>
-    <ng-template pTemplate="content">
-        <ul *ngIf="uploadedFiles.length">
-            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-        </ul>
-    </ng-template>
+<p-fileUpload #fubauto mode="basic" name="file" url="{{apiUrl}}/fileupload?uploadtype=313&pid={{personId}}" accept="image/*" maxFileSize="4194304" (onUpload)="onUpload($event)" [auto]="true" chooseLabel="Browse">
+  <ng-template pTemplate="toolbar">
+    <div>请选择上传图片文件</div>
+  </ng-template>
+  <ng-template pTemplate="content">
+    <ul *ngIf="uploadedFiles.length">
+      <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+    </ul>
+  </ng-template>
 </p-fileUpload>
 <br />
 <br />

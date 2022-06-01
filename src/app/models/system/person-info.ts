@@ -1,6 +1,6 @@
 import { AddressInfo } from './address-info';
 import { Organization } from './organization';
-
+​
 export interface PersonInfo {
   id: number;	                  //userId
   userType?: number;              //X用户类型, 
@@ -39,6 +39,7 @@ export interface PersonInfo {
   endDate?: Date;                 //X
   workCrewId?: number;            //X
   languages?: number[];           //语言
+  languagesDisplay?: string;      //语言（用于显示）
   description?: string;           //简介
   addressInfo?: AddressInfo;      //地址信息
   organization?: Organization;    //单位信息

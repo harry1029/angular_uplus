@@ -31,17 +31,6 @@ export class ApiEditComponent implements OnInit {
     private codeConversionService: CodeConversionService,
   ) { }
 
-  test() {
-    this.codeConversionService.getCodeValues(100010)
-      .subscribe(codeList => {
-        console.log("API Method List: ", codeList);
-      });
-    this.codeConversionService.getCodeValue(100010, 2)
-      .subscribe(codeList => {
-        console.log("API Method Value: ", codeList);
-      });
-  }
-
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     this.apiId = Number(this.route.snapshot.paramMap.get('id'));
@@ -55,8 +44,11 @@ export class ApiEditComponent implements OnInit {
         this.goBack()
       }
       this.api = h;
-      console.log(this.api);
-      this.test();
+      this.codeConversionService.getCodeValues(100010)
+      .subscribe(codeList => {
+        this.codeList = codeList;
+        console.log("API Method List: ", codeList);
+      });
     })
   }
 
