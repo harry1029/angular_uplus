@@ -1,15 +1,59 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
+import { FaqInfoService } from '../../../services/system/faq-info.service';
+import { FaqInfo } from '../../../models/system/faq-info';
+
 @Component({
   selector: 'app-faq-insert',
   templateUrl: './faq-insert.component.html',
-  styleUrls: ['./faq-insert.component.css']
+  styleUrls: ['./faq-insert.component.css'],
+  providers: [FaqInfoService, MessageService],
 })
 export class FaqInsertComponent implements OnInit {
-
-  constructor() { }
+  faq: FaqInfo;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location,
+    private faqInfoService: FaqInfoService,
+    private messageService: MessageService,
+    private primengConfig: PrimeNGConfig
+  ) {}
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
+    this.faq = {
+      id: 0,
+      status: 1,
+      sequence: 0,
+      question: '',
+      answer: '',
+      description: '',
+    };
   }
 
+  submit() {
+    this.faqInfoService.addFaqInfo(this.faq).subscribe((iRet) => {
+      if (iRet > 0) {
+        console.log(this.faq);
+        this.router.navigate(['/manage/faqs']);
+      } else if (iRet == 0) {
+        this.messageService.add({ severity: 'info', detail: 'Save failed.' });
+      } else {
+        this.messageService.add({
+          severity: 'error',
+          detail: 'An error occurred in the server',
+        });
+        console.log(this.faq);
+      }
+    });
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

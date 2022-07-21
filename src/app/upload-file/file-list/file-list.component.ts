@@ -17,7 +17,7 @@ import { UploadFileLogService } from '../../services/file/upload-file-log.servic
 })
 export class FileListComponent implements OnInit {
 
-    apiUrl: string = environment.apiServerUrl + "/files/";
+    apiUrl: string = environment.apiServerUrl;
     uploadFileLogStrus: UploadFileLogStru[];
     selected: UploadFileLogStru;
 

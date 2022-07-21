@@ -5,8 +5,8 @@ import { Location } from '@angular/common';
 import { PrimeNGConfig } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 
-import { PersonInfo } from 'src/app/models/system/person-info';
-import { PersonInfoService } from 'src/app/services/system/person-info.service';
+import { PersonInfo } from '../../../models/system/person-info';
+import { PersonInfoService } from '../../../services/system/person-info.service';
 
 @Component({
   selector: 'app-teacher-detail',

@@ -1,1 +1,124 @@
-<p>faq-list works!</p>
+<p-toast position="top-center"></p-toast>
+<p-toast
+  position="top-center"
+  key="c"
+  (onClose)="onReject()"
+  [baseZIndex]="5000"
+>
+  <ng-template let-message pTemplate="message">
+    <div class="confirm-box-container">
+      <div class="line">
+        <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+      </div>
+      <div class="line title">
+        {{ message.summary }}
+      </div>
+      <div class="line">
+        {{ message.detail }}
+      </div>
+      <div class="line">Faq: {{ selected.status }} {{ selected.sequence }}</div>
+      <div class="line">
+        <button
+          pButton
+          pRipple
+          type="button"
+          (click)="onConfirm()"
+          label="Yes"
+          class="button-square-common-on-white block-small-in-line"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="button"
+          (click)="onReject()"
+          label="No"
+          style="background-color: SlateGray"
+          class="button-square-common-on-white block-small-in-line"
+        ></button>
+      </div>
+    </div>
+  </ng-template>
+</p-toast>
+
+<div style="padding: 10px; font-size: 22px; font-weight: bold">
+  FAQ Management
+</div>
+
+<div style="padding: 10px">
+  <button
+    pButton
+    pRipple
+    type="button"
+    label="Add new FAQ"
+    (click)="insert()"
+    style="background-color: forestgreen; color: white"
+  ></button>
+</div>
+
+<p-table [value]="faqs" styleClass="p-datatable-striped" selectionMode="single">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="text-align: center; padding: 5px; width: 50px">ID</th>
+      <th style="text-align: center; padding: 0px; width: 80px">Status</th>
+      <th style="text-align: center; padding: 0px; width: 50px">Sequence</th>
+      <th style="text-align: center; padding: 0px; width: 150px">Question</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-faq>
+    <tr>
+      <td style="text-align: center; padding: 0px 5px">
+        <button
+          pButton
+          pRipple
+          type="button"
+          (click)="detail(faq)"
+          title="Detail"
+          class="p-button-rounded p-button-secondary p-button-text"
+        >
+          {{ faq.id }}
+        </button>
+      </td>
+      <td style="text-align: center; padding: 0px 5px">
+        {{ faq.status }}
+        <p-checkbox
+          [(ngModel)]="faq.status"
+          [disabled]="true"
+          [binary]="true"
+          [trueValue]="1"
+          [falseValue]="0"
+        ></p-checkbox>
+      </td>
+      <td style="text-align: center; padding: 0px 5px">
+        {{ faq.sequence }}
+      </td>
+      <td style="text-align: center; padding: 0px 5px">
+        {{ faq.question }}
+      </td>
+
+      <td style="padding: 0px 5px; width: 25px">
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-pencil"
+          (click)="edit(faq)"
+          title="Edit"
+          class="p-button-rounded p-button-secondary p-button-text"
+          style="height: 20px; width: 20px"
+        ></button>
+      </td>
+      <td style="padding: 0px 5px; width: 25px">
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-trash"
+          (click)="deleteConfirm(faq)"
+          title="Delete"
+          class="p-button-rounded p-button-secondary p-button-text"
+          style="height: 20px; width: 20px"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

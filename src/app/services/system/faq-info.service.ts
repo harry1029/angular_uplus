@@ -44,7 +44,7 @@ export class FaqInfoService {
   /** PUT: update the faqInfo on the server */
   updateFaqInfo(faqInfo: FaqInfo): Observable<any> {
     return this.http.put<number>(`${this.url}/h?dt=faq`, faqInfo, this.httpOptions).pipe(
-      catchError(this.handleHttpErrorService.handleError<number>('FaqInfoService.updateFaqInfoo'))
+      catchError(this.handleHttpErrorService.handleError<number>('FaqInfoService.updateFaqInfo'))
     );
   }
 

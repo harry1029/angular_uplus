@@ -21,7 +21,7 @@ export class UploadFileLogService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-    //ËùÓÐÓÐÐ§ÎÄ¼þ
+    //所有有效文件
     getAvailableUploadFileLogStrus(): Observable<UploadFileLogStru[]> {
         var queryUrl: string = this.url + "/hs?dt=ufl";
         return this.http.get<UploadFileLogStru[]>(queryUrl)
@@ -31,7 +31,7 @@ export class UploadFileLogService {
             );
     }
 
-    //ËùÓÐÎÄ¼þ
+    //所有文件
     getUploadFileLogStrus(): Observable<UploadFileLogStru[]> {
         var queryUrl: string = this.url + "/hs?dt=ufla";
         return this.http.get<UploadFileLogStru[]>(queryUrl)
@@ -41,7 +41,7 @@ export class UploadFileLogService {
             );
     }
 
-    //É¾³ýÖ¸¶¨IDµÄÎÄ¼þ
+    //删除指定ID的文件
     deleteUploadFileLogStru(uploadFileLogStru: UploadFileLogStru | number): Observable<Number> {
         const id = typeof uploadFileLogStru === 'number' ? uploadFileLogStru : uploadFileLogStru.id;
         const url = `${this.url}/hs/${id}?dt=ufl`;
@@ -51,14 +51,14 @@ export class UploadFileLogService {
         );
     }
 
-    //Êý¾ÝÎÄ¼þ£¬Í·Ïñ²Ã¼ôÍ¼Æ¬
+    //数据文件，头像裁剪图片
     uploadFileData(body: FormData): Observable<ReturnMessage> {
         return this.http.post<ReturnMessage>(this.url + `/filedataupload?dt=profilephoto&uid=${body.get("userid")}&picturetype=${body.get("picturetype")}`, body).pipe(
             catchError(this.handleHttpErrorService.handleError<ReturnMessage>(`UploadFileLogService: uploadFileData userid=${body.get("userid")}`))
         );
     }
 
-    //Êý¾ÝÎÄ¼þ£¬¸öÈËÖ¤ÕÕÍ¼Æ¬
+    //数据文件，个人证照图片
     uploadPersonFileData(body: FormData): Observable<ReturnMessage> {
         return this.http.post<ReturnMessage>(this.url + `/filedataupload?dt=personphoto&pid=${body.get("personId")}&picturetype=${body.get("picturetype")}&pictureflag=${body.get("pictureflag")}`, body).pipe(
             catchError(this.handleHttpErrorService.handleError<ReturnMessage>(`UploadFileLogService: uploadPersonFileData userid=${body.get("userid")}`))

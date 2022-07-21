@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../environments/environment';
 
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 
-import { PersonAttachment } from 'src/app/models/system/person-attachment';
-import { AttachmentService } from 'src/app/services/file/attachment.service';
+import { PersonAttachment } from '../../../models/system/person-attachment';
+import { AttachmentService } from '../../../services/file/attachment.service';
 
-import { CodeConversionService } from 'src/app/services/system/code-conversion.service';
+import { CodeConversionService } from '../../../services/system/code-conversion.service';
 
 @Component({
   selector: 'app-teacher-attachment',

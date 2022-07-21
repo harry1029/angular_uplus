@@ -1,6 +1,6 @@
 import { AddressInfo } from './address-info';
 import { Organization } from './organization';
-​
+
 export interface PersonInfo {
   id: number;	                  //userId
   userType?: number;              //X用户类型, 

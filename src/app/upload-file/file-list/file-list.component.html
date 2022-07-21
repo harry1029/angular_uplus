@@ -43,10 +43,8 @@
     <ng-template pTemplate="body" let-uploadFileLogStru>
         <tr>
             <td style="text-align: center; padding: 0px">
-                <img class="image-thumbnail-size" *ngIf="uploadFileLogStru.flag == 1"
-                     src="{{apiUrl}}{{uploadFileLogStru.storageFullPath}}{{uploadFileLogStru.storageFileName}}-s{{uploadFileLogStru.fileNameExtension}}" />
-                <img class="image-thumbnail-size" *ngIf="uploadFileLogStru.flag == 0"
-                     src="assets/pic/no-photo.png" />
+                <img class="image-thumbnail-size"
+                     src="{{apiUrl}}/{{uploadFileLogStru.attachmentIconPath}}" />
             </td>
             <td style="padding: 0px 5px">{{uploadFileLogStru.storageFullPath}}{{uploadFileLogStru.storageFileName}}</td>
             <td style="text-align: right; padding: 0px 5px">{{uploadFileLogStru.id}}</td>

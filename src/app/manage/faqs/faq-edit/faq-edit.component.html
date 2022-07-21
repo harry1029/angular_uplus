@@ -1,1 +1,93 @@
-<p>faq-edit works!</p>
+<p-toast position="top-left"></p-toast>
+
+<div class="main-petty-content" style="background-color: #3d3d64">
+  <div style="padding: 30px 0px 10px; color: white">
+    <div style="padding: 10px 0px 10px; color: white">
+      <div>
+        <span style="padding-left: 10px; padding-right: 10px">Question :</span>
+        <textarea
+          [rows]="3"
+          [cols]="94"
+          pInputTextarea
+          autoResize="autoResize"
+          [(ngModel)]="faq.question"
+          style="margin-left: 10px"
+        ></textarea>
+      </div>
+    </div>
+
+    <div style="padding: 10px 0px 10px; color: white">
+      <div>
+        <span style="padding-left: 10px; padding-right: 10px">Answer :</span>
+        <textarea
+          [rows]="3"
+          [cols]="94"
+          pInputTextarea
+          [(ngModel)]="faq.answer"
+          style="margin-left: 10px"
+        ></textarea>
+      </div>
+    </div>
+
+    <div style="padding: 10px 0px 10px; color: white">
+      <div>
+        <span style="padding-left: 10px; padding-right: 10px"
+          >Description :</span
+        >
+        <textarea
+          [rows]="3"
+          [cols]="94"
+          pInputTextarea
+          [(ngModel)]="faq.description"
+          style="margin-left: 10px"
+        ></textarea>
+      </div>
+    </div>
+
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px; color: white"
+        >Status:
+      </span>
+      <p-checkbox
+        [(ngModel)]="faq.status"
+        [binary]="true"
+        inputId="binary"
+        [trueValue]="1"
+        [falseValue]="0"
+      ></p-checkbox>
+      <span style="padding-left: 50px; padding-right: 10px; color: white"
+        >Sequence:
+      </span>
+      <input
+        type="number"
+        id="sequence"
+        pInputText
+        [(ngModel)]="faq.sequence"
+        maxlength="100"
+        style="width: 150px"
+        required
+      />
+    </div>
+
+    <div style="padding: 20px 0px; color: white">
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Save"
+        (click)="submit()"
+        style="color: white"
+        class="button-rounded-common-on-dark block-two-thirds-in-line background-scheme-horizontal"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Cancel"
+        (click)="goBack()"
+        style="color: white; margin-left: 10px"
+        class="button-rounded-common-on-dark block-three-in-line background-scheme-horizontal"
+      ></button>
+    </div>
+  </div>
+</div>

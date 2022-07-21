@@ -6,10 +6,8 @@ import { PrimeNGConfig } from 'primeng/api';
 
 import { environment } from '../../../../environments/environment';
 
-import { PersonInfo } from 'src/app/models/system/person-info';
-import { PersonInfoService } from 'src/app/services/system/person-info.service';
-
-import { CodeConversionService } from 'src/app/services/system/code-conversion.service';
+import { PersonInfo } from '../../../models/system/person-info';
+import { PersonInfoService } from '../../../services/system/person-info.service';
 
 
 @Component({

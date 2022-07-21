@@ -73,7 +73,7 @@
       <td style="text-align: center; padding: 0px 5px">{{file.name}}</td>
       <td style="text-align: center; padding: 0px 5px">{{file.url}}</td>
       <td style="text-align: center; padding: 0px 5px">{{file.sequence}}</td>
-      <td style="text-align: center; padding: 0px 5px">{{file.fileSize ? file.fileSize : size}}</td>
+      <td style="text-align: center; padding: 0px 5px">{{file.fileSize ? file.fileSize : file.size}}</td>
       <td style="text-align: center; padding: 0px 5px">{{file.description}}</td>
       <td style="padding: 0px 5px">
         <button pButton pRipple type="button" icon="pi pi-times" (click)="deleteConfirm(file)"

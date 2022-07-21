@@ -25,6 +25,7 @@ import { FaqListComponent } from './faqs/faq-list/faq-list.component';
 import { FaqEditComponent } from './faqs/faq-edit/faq-edit.component';
 import { FaqInsertComponent } from './faqs/faq-insert/faq-insert.component';
 import { FaqDetailComponent } from './faqs/faq-detail/faq-detail.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
@@ -53,7 +54,8 @@ const routes: Routes = [
       { path: 'teacheredit/:id', component: TeacherEditComponent },
       { path: 'teacherdetail/:id', component: TeacherDetailComponent },
       { path: 'teacherattach/:id', component: TeacherAttachmentComponent },
-    ]
+      { path: 'products', component: ProductsComponent },
+   ]
   }
 ];
 

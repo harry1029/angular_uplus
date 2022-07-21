@@ -5,15 +5,15 @@ import { Location } from '@angular/common';
 import { PrimeNGConfig } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 
-import { PersonInfo } from 'src/app/models/system/person-info';
-import { PersonInfoService } from 'src/app/services/system/person-info.service';
+import { PersonInfo } from '../../../models/system/person-info';
+import { PersonInfoService } from '../../../services/system/person-info.service';
 
-import { CellPhoneService } from 'src/app/services/system/cell-phone.service';
-import { CodeConversionService } from 'src/app/services/system/code-conversion.service';
-import { CodeValue } from 'src/app/models/system/code-value';
+import { CellPhoneService } from '../../../services/system/cell-phone.service';
+import { CodeConversionService } from '../../../services/system/code-conversion.service';
+import { CodeValue } from '../../../models/system/code-value';
 
-import { LanguageService } from 'src/app/services/system/language.service';
-import { LanguageInfo } from 'src/app/models/system/language-info';
+import { LanguageService } from '../../../services/system/language.service';
+import { LanguageInfo } from '../../../models/system/language-info';
 
 
 

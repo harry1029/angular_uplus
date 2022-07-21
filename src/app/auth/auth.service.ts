@@ -138,5 +138,9 @@ export class AuthService {
     this.menuRootId = 1000;
   }
 
+  hasRole(roleId: number): boolean {
+    let index = this.userClaims.roles.indexOf("(" + roleId + ")");
+    return index >= 0
+  }
 }
 

@@ -118,33 +118,82 @@ export class PersonInfoService {
     );
   }
 
-  //得到Teachers' Id List，By personId
-  getPersonTrainerIdListByPersonId(personId: number): Observable<number[]> {
-    return this.http.get<number[]>(`${this.url}/hs/${personId}?dt=traineridlist`).pipe(
-      catchError(this.handleHttpErrorService.handleError<number[]>('PersonInfoService.getAdditionInfo'))
+  /** GET Students list from the server */
+  getStudents(): Observable<PersonInfo[]> {
+    return this.http.get<PersonInfo[]>(`${this.url}/h?dt=student`).pipe(
+      catchError(this.handleHttpErrorService.handleError<PersonInfo[]>('PersonInfoService.getStudents'))
     );
   }
 
-  //得到Teachers' Id List£¬By userId
-  getPersonTrainerIdListByUserId(userId: number): Observable<number[]> {
-    return this.http.get<number[]>(`${this.url}/hs/${userId}?dt=traineridlistbyuserid`).pipe(
-      catchError(this.handleHttpErrorService.handleError<number[]>('PersonInfoService.getAdditionInfo'))
+  /** POST: add a new Student to the server */
+  addStudent(person: PersonInfo): Observable<number> {
+    if (person.organizationId == null || person.organizationId == 0) {
+      person.organizationId = 2
+    }
+    return this.http.post<number>(`${this.url}/h?dt=personnel`, person, this.httpOptions).pipe(
+      catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.addStudent'))
     );
   }
 
-  ////教练列表
-  //getTrainers(q: QueryCondition): Observable<Trainer[]> {
-  //    return this.http.post<Trainer[]>(`${this.url}/qs?dt=trainer`, q, this.httpOptions).pipe(
-  //        catchError(this.handleHttpErrorService.handleError<Trainer[]>('PersonInfoService.getTrainers'))
-  //    );
-  //}
+  /** POST: add a new Teacher to the server */
+  addStudents(person: PersonInfo): Observable<number> {
+    if (person.organizationId == null || person.organizationId == 0) {
+      person.organizationId = 2
+    }
+    return this.http.post<number>(`${this.url}/h?dt=personnel`, person, this.httpOptions).pipe(
+      catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.addStudents'))
+    );
+  }
 
-  ////得到总数
-  //getTrainersCount(q: QueryCondition): Observable<number> {
-  //    return this.http.post<number>(`${this.url}/qs?dt=trainercount`, q, this.httpOptions).pipe(
-  //        catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.getTrainersCount'))
-  //    );
-  //}
+    //综合查询-教师列表
+  getTeachersByQuery(q: QueryCondition): Observable<PersonInfo[]> {
+    if (q.whereAnd == null) {
+      q.whereAnd = [{ keyCode: "o.type", operator: "=", description: "21" }]
+    } else {
+      q.whereAnd.push({ keyCode: "o.type", operator: "=", description: "21" })
+    }
+    return this.http.post<PersonInfo[]>(`${this.url}/qs?dt=personnel`, q, this.httpOptions).pipe(
+      catchError(this.handleHttpErrorService.handleError<PersonInfo[]>('PersonInfoService.getTeachersByQuery'))
+    );
+  }
+
+  //综合查询-教师总数
+  getTeachersCount(q: QueryCondition): Observable<number> {
+    if (q.whereAnd == null) {
+      q.whereAnd = [{ keyCode: "o.type", operator: "=", description: "21" }]
+    } else {
+      q.whereAnd.push({ keyCode: "o.type", operator: "=", description: "21" })
+    }
+
+    return this.http.post<number>(`${this.url}/qs?dt=personnelcount`, q, this.httpOptions).pipe(
+      catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.getTeachersCount'))
+    );
+  }
+
+  //综合查询-学生列表
+  getStudentsByQuery(q: QueryCondition): Observable<PersonInfo[]> {
+    if (q.whereAnd == null) {
+      q.whereAnd = [{ keyCode: "o.type", operator: "=", description: "1" }]
+    } else {
+      q.whereAnd.push({ keyCode: "o.type", operator: "=", description: "1" })
+    }
+    return this.http.post<PersonInfo[]>(`${this.url}/qs?dt=personnel`, q, this.httpOptions).pipe(
+      catchError(this.handleHttpErrorService.handleError<PersonInfo[]>('PersonInfoService.getStudentsByQuery'))
+    );
+  }
+
+  //综合查询-学生总数
+  getStudentsCount(q: QueryCondition): Observable<number> {
+    if (q.whereAnd == null) {
+      q.whereAnd = [{ keyCode: "o.type", operator: "=", description: "1" }]
+    } else {
+      q.whereAnd.push({ keyCode: "o.type", operator: "=", description: "1" })
+    }
+
+    return this.http.post<number>(`${this.url}/qs?dt=personnelcount`, q, this.httpOptions).pipe(
+      catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.getStudentsCount'))
+    );
+  }
 
   ////得到指定教练信息
   //getTrainer(personId: number): Observable<Trainer> {
