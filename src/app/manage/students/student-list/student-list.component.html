@@ -16,7 +16,9 @@
       <div class="line">
         {{ message.detail }}
       </div>
-      <div class="line">Faq: {{ selected.status }} {{ selected.sequence }}</div>
+      <div class="line">
+        Student: {{ selected.firstName }} {{ selected.lastName }}
+      </div>
       <div class="line">
         <button
           pButton
@@ -41,7 +43,7 @@
 </p-toast>
 
 <div style="padding: 10px; font-size: 22px; font-weight: bold">
-  FAQ Management
+  Students Management
 </div>
 
 <div style="padding: 10px">
@@ -49,59 +51,81 @@
     pButton
     pRipple
     type="button"
-    label="Add new FAQ"
+    label="Add new student"
     (click)="insert()"
     style="background-color: forestgreen; color: white"
   ></button>
 </div>
 
-<p-table [value]="faqs" styleClass="p-datatable-striped" selectionMode="single">
+<p-table
+  [value]="students"
+  styleClass="p-datatable-striped"
+  selectionMode="single"
+>
   <ng-template pTemplate="header">
     <tr>
       <th style="text-align: center; padding: 5px; width: 50px">ID</th>
-      <th style="text-align: center; padding: 0px; width: 80px">Status</th>
-      <th style="text-align: center; padding: 0px; width: 50px">Sequence</th>
-      <th style="text-align: center; padding: 0px; width: 150px">Question</th>
+      <th style="text-align: center; padding: 0px; width: 80px">First Name</th>
+      <th style="text-align: center; padding: 0px; width: 80px">Last Name</th>
+      <th style="text-align: center; padding: 0px; width: 80px">Position</th>
+      <th style="text-align: center; padding: 0px; width: 50px">Gender</th>
+      <th style="text-align: center; padding: 0px; width: 150px">Email</th>
+      <th style="text-align: center; padding: 0px; width: 100px">Start Date</th>
+      <th style="text-align: center; padding: 0px; width: 100px">End Date</th>
+      <th style="text-align: center; padding: 0px; width: 200px">Languages</th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-faq>
+  <ng-template pTemplate="body" let-student>
     <tr>
       <td style="text-align: center; padding: 0px 5px">
         <button
           pButton
           pRipple
           type="button"
-          (click)="detail(faq)"
+          (click)="detail(student)"
           title="Detail"
           class="p-button-rounded p-button-secondary p-button-text"
         >
-          {{ faq.id }}
+          {{ student.id }}
         </button>
       </td>
       <td style="text-align: center; padding: 0px 5px">
-        {{ faq.status }}
-        <p-checkbox
-          [(ngModel)]="faq.status"
-          [disabled]="true"
-          [binary]="true"
-          [trueValue]="1"
-          [falseValue]="0"
-        ></p-checkbox>
+        {{ student.firstName }}
       </td>
       <td style="text-align: center; padding: 0px 5px">
-        {{ faq.sequence }}
+        {{ student.lastName }}
       </td>
       <td style="text-align: center; padding: 0px 5px">
-        {{ faq.question }}
+        {{ student.position }}
+      </td>
+      <td style="text-align: center; padding: 0px 5px">
+        {{ gender[student.gender == -1 ? 5 : student.gender].type }}
+      </td>
+      <td style="text-align: center; padding: 0px 5px">{{ student.email }}</td>
+      <td style="text-align: center; padding: 0px 5px">
+        {{ student.startDate }}
+      </td>
+      <td style="text-align: center; padding: 0px 5px">
+        {{ student.endDate }}
+      </td>
+      <td style="text-align: center; padding: 0px 5px">
+        {{ student.languagesDisplay }}
       </td>
 
+      <td style="padding: 0px 5px; width: 25px">
+        <p-button
+          label="Manage Files"
+          icon="pi pi-plus"
+          (click)="attachment(student)"
+        ></p-button>
+      </td>
       <td style="padding: 0px 5px; width: 25px">
         <button
           pButton
           pRipple
           type="button"
           icon="pi pi-pencil"
-          (click)="edit(faq)"
+          (click)="edit(student)"
           title="Edit"
           class="p-button-rounded p-button-secondary p-button-text"
           style="height: 20px; width: 20px"
@@ -113,7 +137,7 @@
           pRipple
           type="button"
           icon="pi pi-trash"
-          (click)="deleteConfirm(faq)"
+          (click)="deleteConfirm(student)"
           title="Delete"
           class="p-button-rounded p-button-secondary p-button-text"
           style="height: 20px; width: 20px"
@@ -122,3 +146,9 @@
     </tr>
   </ng-template>
 </p-table>
+
+<br />
+<br />
+<br />
+<br />
+<br />

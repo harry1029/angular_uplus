@@ -12,124 +12,257 @@ import { PersonExtension } from '../../models/system/person-extension';
 
 @Injectable()
 export class PersonInfoService {
-
   constructor(
     private http: HttpClient,
-    private handleHttpErrorService: HandleHttpErrorService,
-  ) { }
+    private handleHttpErrorService: HandleHttpErrorService
+  ) {}
 
   url: string = environment.apiServerUrl;
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
   //Modify PersonInfo
   updatePersonInfo(personInfo: PersonInfo): Observable<number> {
-    return this.http.put<number>(`${this.url}/hs?dt=personnel`, personInfo, this.httpOptions).pipe(
-      catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.updatePersonInfo'))
-    );
+    return this.http
+      .put<number>(`${this.url}/hs?dt=personnel`, personInfo, this.httpOptions)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<number>(
+            'PersonInfoService.updatePersonInfo'
+          )
+        )
+      );
   }
 
   //Delete PersonInfo
   deletePersonInfo(id: number): Observable<number> {
-    return this.http.delete<number>(`${this.url}/h/${id}?dt=personnel`, this.httpOptions).pipe(
-      catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.deletePersonInfo'))
-    );
+    return this.http
+      .delete<number>(`${this.url}/h/${id}?dt=personnel`, this.httpOptions)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<number>(
+            'PersonInfoService.deletePersonInfo'
+          )
+        )
+      );
   }
 
   //Get PersonInfo by userId
   getPersonInfo(userId: number): Observable<PersonInfo> {
-    return this.http.get<PersonInfo>(`${this.url}/hs/${userId}?dt=personnel`).pipe(
-      catchError(this.handleHttpErrorService.handleError<PersonInfo>('PersonInfoService.getPersonInfo'))
-    );
+    return this.http
+      .get<PersonInfo>(`${this.url}/hs/${userId}?dt=personnel`)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<PersonInfo>(
+            'PersonInfoService.getPersonInfo'
+          )
+        )
+      );
   }
 
   //得到PersonInfo基本信息， by personId
   getPersonBaseInfoByPersonId(personId: number): Observable<PersonInfo> {
-    return this.http.get<PersonInfo>(`${this.url}/hs/${personId}?dt=personbase`).pipe(
-      catchError(this.handleHttpErrorService.handleError<PersonInfo>('PersonInfoService.getPersonInfo'))
-    );
+    return this.http
+      .get<PersonInfo>(`${this.url}/hs/${personId}?dt=personbase`)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<PersonInfo>(
+            'PersonInfoService.getPersonInfo'
+          )
+        )
+      );
   }
 
   //得到PersonId， by userId
   getPersonIdByUserId(userId: number): Observable<number> {
-    return this.http.get<number>(`${this.url}/hs/${userId}?dt=personid`).pipe(
-      catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.getPersonIdByUserId'))
-    );
+    return this.http
+      .get<number>(`${this.url}/hs/${userId}?dt=personid`)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<number>(
+            'PersonInfoService.getPersonIdByUserId'
+          )
+        )
+      );
   }
 
   //得到userId. by PersonId
   getUserIdIdByPersonId(personId: number): Observable<number> {
-    return this.http.get<number>(`${this.url}/hs/${personId}?dt=userId`).pipe(
-      catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.getUserIdIdByPersonId'))
-    );
+    return this.http
+      .get<number>(`${this.url}/hs/${personId}?dt=userId`)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<number>(
+            'PersonInfoService.getUserIdIdByPersonId'
+          )
+        )
+      );
   }
 
   //检查个人信息填写的完整性。返回：>0信息完善; =0缺个人信息; =-1证照信息正常，个人信息需要完善; <-1不存在相关证照信息
   checkPersonInfoByUserId(userId: number): Observable<number> {
-    return this.http.get<number>(`${this.url}/hs/${userId}?dt=checkpersoninfo`).pipe(
-      catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.checkPersonInfoByUserId'))
-    );
+    return this.http
+      .get<number>(`${this.url}/hs/${userId}?dt=checkpersoninfo`)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<number>(
+            'PersonInfoService.checkPersonInfoByUserId'
+          )
+        )
+      );
   }
 
   //PersonExtension
   updateExtension(personExtension: PersonExtension): Observable<number> {
-    return this.http.post<number>(`${this.url}/hs?dt=personextension&dd=${personExtension.type}`, personExtension, this.httpOptions).pipe(
-      catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.updateExtensionInfo'))
-    );
+    return this.http
+      .post<number>(
+        `${this.url}/hs?dt=personextension&dd=${personExtension.type}`,
+        personExtension,
+        this.httpOptions
+      )
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<number>(
+            'PersonInfoService.updateExtensionInfo'
+          )
+        )
+      );
   }
 
-  getExtension(personId: number, extensionType: number): Observable<PersonExtension> {
-    return this.http.get<PersonExtension>(`${this.url}/hs?dt=personextension&et=${extensionType}&pid=${personId}`).pipe(
-      catchError(this.handleHttpErrorService.handleError<PersonExtension>('PersonInfoService.getExtensionInfo'))
-    );
+  getExtension(
+    personId: number,
+    extensionType: number
+  ): Observable<PersonExtension> {
+    return this.http
+      .get<PersonExtension>(
+        `${this.url}/hs?dt=personextension&et=${extensionType}&pid=${personId}`
+      )
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<PersonExtension>(
+            'PersonInfoService.getExtensionInfo'
+          )
+        )
+      );
   }
   //
 
-
   //PersonAdditionInfo
   updateAdditionInfo(personAdditionInfo: PersonAddition): Observable<number> {
-    return this.http.post<number>(`${this.url}/hs?dt=personaddition&dd=${personAdditionInfo.type}`, personAdditionInfo, this.httpOptions).pipe(
-      catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.updateAdditionInfo'))
-    );
+    return this.http
+      .post<number>(
+        `${this.url}/hs?dt=personaddition&dd=${personAdditionInfo.type}`,
+        personAdditionInfo,
+        this.httpOptions
+      )
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<number>(
+            'PersonInfoService.updateAdditionInfo'
+          )
+        )
+      );
   }
 
-  getAdditionInfo(personId: number, additionType: number): Observable<PersonAddition> {
-    return this.http.get<PersonAddition>(`${this.url}/hs?dt=personaddition&at=${additionType}&pid=${personId}`).pipe(
-      catchError(this.handleHttpErrorService.handleError<PersonAddition>('PersonInfoService.getAdditionInfo'))
-    );
+  getAdditionInfo(
+    personId: number,
+    additionType: number
+  ): Observable<PersonAddition> {
+    return this.http
+      .get<PersonAddition>(
+        `${this.url}/hs?dt=personaddition&at=${additionType}&pid=${personId}`
+      )
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<PersonAddition>(
+            'PersonInfoService.getAdditionInfo'
+          )
+        )
+      );
   }
   //
 
   /** GET Teachers list from the server */
   getTeachers(): Observable<PersonInfo[]> {
-    return this.http.get<PersonInfo[]>(`${this.url}/h?dt=teacher`).pipe(
-      catchError(this.handleHttpErrorService.handleError<PersonInfo[]>('PersonInfoService.getTeachers'))
-    );
+    return this.http
+      .get<PersonInfo[]>(`${this.url}/h?dt=teacher`)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<PersonInfo[]>(
+            'PersonInfoService.getTeachers'
+          )
+        )
+      );
   }
 
   /** POST: add a new Teacher to the server */
   addTeacher(person: PersonInfo): Observable<number> {
     if (person.organizationId == null || person.organizationId == 0) {
-      person.organizationId = 3
+      person.organizationId = 3;
     }
-    return this.http.post<number>(`${this.url}/h?dt=personnel`, person, this.httpOptions).pipe(
-      catchError(this.handleHttpErrorService.handleError<number>('PersonInfoService.addTeacher'))
-    );
+    return this.http
+      .post<number>(`${this.url}/h?dt=personnel`, person, this.httpOptions)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<number>(
+            'PersonInfoService.addTeacher'
+          )
+        )
+      );
+  }
+
+  /** GET Students list from the server */
+  getStudents(): Observable<PersonInfo[]> {
+    return this.http
+      .get<PersonInfo[]>(`${this.url}/h?dt=student`)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<PersonInfo[]>(
+            'PersonInfoService.getStudents'
+          )
+        )
+      );
+  }
+
+  /** POST: add a new Student to the server */
+  addStudent(person: PersonInfo): Observable<number> {
+    person.organizationId = 2;
+    return this.http
+      .post<number>(`${this.url}/h?dt=personnel`, person, this.httpOptions)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<number>(
+            'PersonInfoService.addStudent'
+          )
+        )
+      );
   }
 
   //得到Teachers' Id List，By personId
   getPersonTrainerIdListByPersonId(personId: number): Observable<number[]> {
-    return this.http.get<number[]>(`${this.url}/hs/${personId}?dt=traineridlist`).pipe(
-      catchError(this.handleHttpErrorService.handleError<number[]>('PersonInfoService.getAdditionInfo'))
-    );
+    return this.http
+      .get<number[]>(`${this.url}/hs/${personId}?dt=traineridlist`)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<number[]>(
+            'PersonInfoService.getAdditionInfo'
+          )
+        )
+      );
   }
 
   //得到Teachers' Id List£¬By userId
   getPersonTrainerIdListByUserId(userId: number): Observable<number[]> {
-    return this.http.get<number[]>(`${this.url}/hs/${userId}?dt=traineridlistbyuserid`).pipe(
-      catchError(this.handleHttpErrorService.handleError<number[]>('PersonInfoService.getAdditionInfo'))
-    );
+    return this.http
+      .get<number[]>(`${this.url}/hs/${userId}?dt=traineridlistbyuserid`)
+      .pipe(
+        catchError(
+          this.handleHttpErrorService.handleError<number[]>(
+            'PersonInfoService.getAdditionInfo'
+          )
+        )
+      );
   }
 
   ////教练列表

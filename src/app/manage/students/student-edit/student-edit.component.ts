@@ -9,26 +9,25 @@ import { PersonInfo } from 'src/app/models/system/person-info';
 import { PersonInfoService } from 'src/app/services/system/person-info.service';
 
 import { CellPhoneService } from 'src/app/services/system/cell-phone.service';
-import { CodeConversionService } from 'src/app/services/system/code-conversion.service';
 import { CodeValue } from 'src/app/models/system/code-value';
 
 import { LanguageService } from 'src/app/services/system/language.service';
 import { LanguageInfo } from 'src/app/models/system/language-info';
 
 @Component({
-  selector: 'app-teacher-insert',
-  templateUrl: './teacher-insert.component.html',
-  styleUrls: ['./teacher-insert.component.css'],
+  selector: 'app-student-edit',
+  templateUrl: './student-edit.component.html',
+  styleUrls: ['./student-edit.component.css'],
   providers: [
-    PersonInfoService,
-    CellPhoneService,
     MessageService,
-    CodeConversionService,
+    CellPhoneService,
+    PersonInfoService,
     LanguageService,
   ],
 })
-export class TeacherInsertComponent implements OnInit {
-  teacher: PersonInfo;
+export class StudentEditComponent implements OnInit {
+  studentId: number;
+  student: PersonInfo;
   gender: { id: number; type: string }[] = [
     { id: 0, type: 'Male' },
     { id: 1, type: 'Female' },
@@ -50,12 +49,30 @@ export class TeacherInsertComponent implements OnInit {
     private primengConfig: PrimeNGConfig,
     private messageService: MessageService,
     private cellPhoneService: CellPhoneService,
-    private codeConversionService: CodeConversionService,
     private languageService: LanguageService
   ) {}
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
+    this.studentId = Number(this.route.snapshot.paramMap.get('id'));
+    if (this.studentId <= 0) {
+      this.messageService.add({
+        severity: 'warn',
+        detail: 'Wrong Student Id!',
+      });
+      this.goBack();
+    }
+    this.personInfoService.getPersonInfo(this.studentId).subscribe((h) => {
+      if (h.id <= 0) {
+        this.messageService.add({
+          severity: 'warn',
+          detail: 'Wrong Student Id!',
+        });
+        this.goBack();
+      }
+      this.student = h;
+      console.log(this.student);
+    });
     this.cellPhoneService.getAvailablePhoneAreaCodes().subscribe((codes) => {
       this.phoneAreaCodeList = codes;
     });
@@ -63,8 +80,7 @@ export class TeacherInsertComponent implements OnInit {
       this.languageList = codes;
       console.log(codes);
     });
-
-    this.teacher = {
+    this.student = {
       id: 0,
       firstName: '',
       lastName: '',
@@ -86,14 +102,10 @@ export class TeacherInsertComponent implements OnInit {
   }
 
   submit() {
-    // if (this.api.apiPath == null || this.api.apiPath.trim().length < 1) {
-    //   this.messageService.add({ severity: 'warn', detail: "apiPath is mandatory." });
-    //   return;
-    // }
-    this.personInfoService.addTeacher(this.teacher).subscribe((iRet) => {
+    this.personInfoService.updatePersonInfo(this.student).subscribe((iRet) => {
       if (iRet > 0) {
-        console.log(this.teacher);
-        this.router.navigate(['/manage/teachers']);
+        console.log(this.student);
+        this.router.navigate(['/manage/students']);
       } else if (iRet == 0) {
         this.messageService.add({ severity: 'info', detail: 'Save failed.' });
       } else {
@@ -101,7 +113,7 @@ export class TeacherInsertComponent implements OnInit {
           severity: 'error',
           detail: 'An error occurred in the server',
         });
-        console.log(this.teacher);
+        console.log(this.student);
       }
     });
   }

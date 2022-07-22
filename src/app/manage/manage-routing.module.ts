@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from '../auth/auth.guard';
-
 import { MenuItemTreeComponent } from './menu-item/menu-item-tree/menu-item-tree.component';
 import { OrgTreeComponent } from './organization/org-tree/org-tree.component';
 import { CoursesComponent } from './courses/courses.component';
-import { StudentsComponent } from './students/students.component';
+import { StudentListComponent } from './students/student-list/student-list.component';
 import { BooksComponent } from './books/books.component';
 import { ExampleOneComponent } from './example-one/example-one.component';
 import { ExampleTwoComponent } from './example-two/example-two.component';
@@ -25,6 +23,10 @@ import { FaqListComponent } from './faqs/faq-list/faq-list.component';
 import { FaqEditComponent } from './faqs/faq-edit/faq-edit.component';
 import { FaqInsertComponent } from './faqs/faq-insert/faq-insert.component';
 import { FaqDetailComponent } from './faqs/faq-detail/faq-detail.component';
+import { StudentInsertComponent } from './students/student-insert/student-insert.component';
+import { StudentEditComponent } from './students/student-edit/student-edit.component';
+import { StudentDetailComponent } from './students/student-detail/student-detail.component';
+import { StudentAttachmentComponent } from './students/student-attachment/student-attachment.component';
 
 const routes: Routes = [
   {
@@ -34,7 +36,6 @@ const routes: Routes = [
       { path: 'menutree', component: MenuItemTreeComponent },
       { path: 'orgtree', component: OrgTreeComponent },
       { path: 'courses', component: CoursesComponent },
-      { path: 'students', component: StudentsComponent },
       { path: 'books', component: BooksComponent },
       { path: 'example1', component: ExampleOneComponent },
       { path: 'example2', component: ExampleTwoComponent },
@@ -48,17 +49,22 @@ const routes: Routes = [
       { path: 'faqinsert', component: FaqInsertComponent },
       { path: 'faqedit/:id', component: FaqEditComponent },
       { path: 'faqdetail/:id', component: FaqDetailComponent },
+      { path: 'students', component: StudentListComponent },
+      { path: 'studentinsert', component: StudentInsertComponent },
+      { path: 'studentedit/:id', component: StudentEditComponent },
+      { path: 'studentdetail/:id', component: StudentDetailComponent },
+      { path: 'studentattach/:id', component: StudentAttachmentComponent },
       { path: 'teachers', component: TeacherListComponent },
       { path: 'teacherinsert', component: TeacherInsertComponent },
       { path: 'teacheredit/:id', component: TeacherEditComponent },
       { path: 'teacherdetail/:id', component: TeacherDetailComponent },
       { path: 'teacherattach/:id', component: TeacherAttachmentComponent },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ManageRoutingModule { }
+export class ManageRoutingModule {}

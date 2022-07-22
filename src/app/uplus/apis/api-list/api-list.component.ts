@@ -6,13 +6,11 @@ import { PrimeNGConfig } from 'primeng/api';
 
 import { environment } from '../../../../environments/environment';
 
-import { ApiInfo } from '../../../models/api/api-info'
-import { ApiInfoService } from '../../../services/api/api-info.service'
+import { ApiInfo } from '../../../models/api/api-info';
+import { ApiInfoService } from '../../../services/api/api-info.service';
 
 import { CodeConversionService } from 'src/app/services/system/code-conversion.service';
 import { CodeValue } from 'src/app/models/system/code-value';
-
-
 
 @Component({
   selector: 'app-api-list',
@@ -23,8 +21,7 @@ import { CodeValue } from 'src/app/models/system/code-value';
 
 // Export the class component for router to use @uplus-routing.module.ts
 export class ApiListComponent implements OnInit {
-
-  apiUrl: string = environment.apiServerUrl + "/h";
+  apiUrl: string = environment.apiServerUrl + '/h';
   apis: ApiInfo[];
 
   selected: ApiInfo;
@@ -36,47 +33,63 @@ export class ApiListComponent implements OnInit {
     private router: Router,
     private messageService: MessageService,
 
-    private codeConversionService: CodeConversionService,
-  ) { }
+    private codeConversionService: CodeConversionService
+  ) {}
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
 
-    this.codeConversionService.getCodeValues(100010)
-    .subscribe(codeList => {
+    this.codeConversionService.getCodeValues(100010).subscribe((codeList) => {
       this.codeValues = codeList;
-      console.log(this.codeValues)
+      console.log(this.codeValues);
     });
     this.getAPIs();
   }
 
   getAPIs(): void {
-    this.apiInfoService.getApiInfos()
-      .subscribe(apis => {
-        this.apis = apis;
-        console.log("APIs: ", apis);
-      });
+    this.apiInfoService.getApiInfos().subscribe((apis) => {
+      this.apis = apis;
+      console.log('APIs: ', apis);
+    });
   }
 
   deleteAPI(api: ApiInfo): void {
-    this.apiInfoService.deleteApiInfo(api.id).subscribe(
-      deleteN => {
-        if (deleteN > 0) {
-          let message = 'The api "' + this.selected.apiPath + '" has been successfully deleted.'
-          this.messageService.clear();
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: message, life: 10000});
-          this.getAPIs();
-        } else {
-          this.messageService.clear();
-          this.messageService.add({ severity: 'info', summary: 'Info', detail: 'No api has been deleted.', life: 10000});
-        }
-      });
+    this.apiInfoService.deleteApiInfo(api.id).subscribe((deleteN) => {
+      if (deleteN > 0) {
+        let message =
+          'The api "' +
+          this.selected.apiPath +
+          '" has been successfully deleted.';
+        this.messageService.clear();
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: message,
+          life: 10000,
+        });
+        this.getAPIs();
+      } else {
+        this.messageService.clear();
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Info',
+          detail: 'No api has been deleted.',
+          life: 10000,
+        });
+      }
+    });
   }
 
   deleteConfirm(api: ApiInfo) {
     this.selected = api;
     this.messageService.clear();
-    this.messageService.add({ key: 'c', sticky: true, severity: 'warn', summary: 'Are you sure?', detail: 'Delete the API' });
+    this.messageService.add({
+      key: 'c',
+      sticky: true,
+      severity: 'warn',
+      summary: 'Are you sure?',
+      detail: 'Delete the API',
+    });
   }
 
   onConfirm() {
@@ -92,7 +105,6 @@ export class ApiListComponent implements OnInit {
     this.router.navigate([`manage/apiinsert`]);
   }
 
-
   edit(api: ApiInfo) {
     this.selected = api;
     this.router.navigate([`manage/apiedit/${api.id}`]);
@@ -102,5 +114,4 @@ export class ApiListComponent implements OnInit {
     this.selected = api;
     this.router.navigate([`manage/apidetail/${api.id}`]);
   }
-
 }

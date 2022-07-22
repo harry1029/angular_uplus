@@ -1,1 +1,82 @@
-<p>faq-detail works!</p>
+<p-toast position="top-left"></p-toast>
+
+<div class="main-petty-content" style="background-color: #3d3d64">
+  <div style="padding: 10px 0px 10px; color: white">
+    <div style="padding: 10px 0px 10px; color: white">
+      <div>
+        <span style="padding-left: 10px; padding-right: 10px">Question: </span>
+      </div>
+      <div>
+        <span style="padding-left: 10px; padding-right: 10px">{{
+          faq.question
+        }}</span>
+      </div>
+    </div>
+
+    <div style="padding: 10px 0px 10px; color: white">
+      <div>
+        <span style="padding-left: 10px; padding-right: 10px">Answer: </span>
+      </div>
+      <div>
+        <span style="padding-left: 10px; padding-right: 10px">{{
+          faq.answer
+        }}</span>
+      </div>
+    </div>
+
+    <div style="padding: 10px 0px 10px; color: white">
+      <div>
+        <span style="padding-left: 10px; padding-right: 10px"
+          >Description:
+        </span>
+      </div>
+      <div>
+        <span style="padding-left: 10px; padding-right: 10px">{{
+          faq.description
+        }}</span>
+      </div>
+    </div>
+
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px; color: white"
+        >Status:
+      </span>
+      <p-checkbox
+        [(ngModel)]="faq.status"
+        [disabled]="true"
+        [binary]="true"
+        inputId="binary"
+        [trueValue]="1"
+        [falseValue]="0"
+      ></p-checkbox>
+      <span style="padding-left: 50px; padding-right: 10px; color: white"
+        >Sequence:
+      </span>
+      <input
+        type="text"
+        id="sequence"
+        pInputText
+        [(ngModel)]="faq.sequence"
+        maxlength="100"
+        style="width: 150px"
+        required
+      />
+    </div>
+
+    <div style="padding: 20px 0px; color: white">
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Back"
+        (click)="goBack()"
+        style="color: white; margin-left: 10px"
+        class="button-rounded-common-on-dark block-three-in-line background-scheme-horizontal"
+      ></button>
+    </div>
+
+    <br />
+    <br />
+    <br />
+  </div>
+</div>

@@ -11,17 +11,17 @@ import { AttachmentService } from 'src/app/services/file/attachment.service';
 import { CodeConversionService } from 'src/app/services/system/code-conversion.service';
 
 @Component({
-  selector: 'app-teacher-attachment',
-  templateUrl: './teacher-attachment.component.html',
-  styleUrls: ['./teacher-attachment.component.css'],
+  selector: 'app-student-attachment',
+  templateUrl: './student-attachment.component.html',
+  styleUrls: ['./student-attachment.component.css'],
   providers: [MessageService, AttachmentService, CodeConversionService],
 })
-export class TeacherAttachmentComponent implements OnInit {
+export class StudentAttachmentComponent implements OnInit {
   apiUrl: string = environment.apiServerUrl;
   attachmentPath: string;
   selected: PersonAttachment;
 
-  teacherId: number;
+  studentId: number;
   uploadedFiles: any[] = [];
   filesList: PersonAttachment[];
 
@@ -36,13 +36,13 @@ export class TeacherAttachmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
-    this.teacherId = Number(this.route.snapshot.paramMap.get('id'));
+    this.studentId = Number(this.route.snapshot.paramMap.get('id'));
     this.getPersonAttachments();
   }
 
   getPersonAttachments(): void {
     this.attachmentService
-      .getPersonAttachmentByPersonId(this.teacherId)
+      .getPersonAttachmentByPersonId(this.studentId)
       .subscribe((list) => {
         this.filesList = list;
       });

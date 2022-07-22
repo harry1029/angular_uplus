@@ -30,7 +30,7 @@ import { OrgTreeInsertComponent } from './organization/org-tree-insert/org-tree-
 import { OrgTreeUpdateComponent } from './organization/org-tree-update/org-tree-update.component';
 import { HomeComponent } from './home/home.component';
 import { CoursesComponent } from './courses/courses.component';
-import { StudentsComponent } from './students/students.component';
+import { StudentListComponent } from './students/student-list/student-list.component';
 import { BooksComponent } from './books/books.component';
 import { ExampleOneComponent } from './example-one/example-one.component';
 import { ExampleTwoComponent } from './example-two/example-two.component';
@@ -49,6 +49,10 @@ import { FaqListComponent } from './faqs/faq-list/faq-list.component';
 import { FaqEditComponent } from './faqs/faq-edit/faq-edit.component';
 import { FaqInsertComponent } from './faqs/faq-insert/faq-insert.component';
 import { FaqDetailComponent } from './faqs/faq-detail/faq-detail.component';
+import { StudentInsertComponent } from './students/student-insert/student-insert.component';
+import { StudentEditComponent } from './students/student-edit/student-edit.component';
+import { StudentDetailComponent } from './students/student-detail/student-detail.component';
+import { StudentAttachmentComponent } from './students/student-attachment/student-attachment.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +66,7 @@ import { FaqDetailComponent } from './faqs/faq-detail/faq-detail.component';
     OrgTreeUpdateComponent,
     HomeComponent,
     CoursesComponent,
-    StudentsComponent,
+    StudentListComponent,
     BooksComponent,
     ExampleOneComponent,
     ExampleTwoComponent,
@@ -81,6 +85,10 @@ import { FaqDetailComponent } from './faqs/faq-detail/faq-detail.component';
     FaqEditComponent,
     FaqInsertComponent,
     FaqDetailComponent,
+    StudentInsertComponent,
+    StudentEditComponent,
+    StudentDetailComponent,
+    StudentAttachmentComponent,
   ],
 
   imports: [
@@ -102,7 +110,6 @@ import { FaqDetailComponent } from './faqs/faq-detail/faq-detail.component';
     HttpClientModule,
     MultiSelectModule,
     ImageModule,
-    
-  ]
+  ],
 })
-export class ManageModule { }
+export class ManageModule {}

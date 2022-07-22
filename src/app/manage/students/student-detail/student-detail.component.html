@@ -1,0 +1,131 @@
+<p-toast position="top-left"></p-toast>
+
+<div class="main-petty-content" style="background-color: #3d3d64">
+  <div style="padding: 10px 0px 10px; color: white">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px"
+        >User Code : {{ student.userCode }}</span
+      >
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px"
+        >Login Phone : {{ student.loginPhone }}</span
+      >
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px"
+        >Last Name : {{ student.lastName }}</span
+      >
+      <span style="padding-left: 50px; padding-right: 10px"
+        >First Name : {{ student.firstName }}</span
+      >
+      <span style="padding-left: 50px; padding-right: 10px"
+        >Preferred Name : {{ student.preferredName }}</span
+      >
+      <span style="padding-left: 50px; padding-right: 10px"
+        >Gender : {{ gender[student.gender].type }}</span
+      >
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px"
+        >Phone Area ID : {{ student.phoneAreaId }}</span
+      >
+      <span style="padding-left: 40px; padding-right: 10px"
+        >Phone Number : {{ student.phone }}</span
+      >
+      <span style="padding-left: 10px; padding-right: 10px"
+        >Phone 2 : {{ student.phone2 }}</span
+      >
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px"
+        >Email : {{ student.email }}</span
+      >
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px"
+        >Emergency Contact : {{ student.emContact }}</span
+      >
+      <span style="padding-left: 50px; padding-right: 10px"
+        >Emergency Phone : {{ student.emPhone }}</span
+      >
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px"
+        >Position : {{ student.position }}</span
+      >
+      <span style="padding-left: 50px; padding-right: 10px"
+        >Start Date : {{ student.startDate }}</span
+      >
+      <span style="padding-left: 50px; padding-right: 10px"
+        >End Date : {{ student.endDate }}</span
+      >
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px"
+        >Languages : {{ student.languagesDisplay }}</span
+      >
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px"
+        >Self Introduction</span
+      >
+    </div>
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">{{
+        student.selfInfo
+      }}</span>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Description</span>
+    </div>
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">{{
+        student.description
+      }}</span>
+    </div>
+  </div>
+
+  <div style="padding: 20px 0px; color: white">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Back"
+      (click)="goBack()"
+      style="color: white; margin-left: 10px"
+      class="button-rounded-common-on-dark block-three-in-line background-scheme-horizontal"
+    ></button>
+  </div>
+
+  <br />
+  <br />
+  <br />
+</div>

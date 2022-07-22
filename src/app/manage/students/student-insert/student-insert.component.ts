@@ -16,9 +16,9 @@ import { LanguageService } from 'src/app/services/system/language.service';
 import { LanguageInfo } from 'src/app/models/system/language-info';
 
 @Component({
-  selector: 'app-teacher-insert',
-  templateUrl: './teacher-insert.component.html',
-  styleUrls: ['./teacher-insert.component.css'],
+  selector: 'app-student-insert',
+  templateUrl: './student-insert.component.html',
+  styleUrls: ['./student-insert.component.css'],
   providers: [
     PersonInfoService,
     CellPhoneService,
@@ -27,8 +27,8 @@ import { LanguageInfo } from 'src/app/models/system/language-info';
     LanguageService,
   ],
 })
-export class TeacherInsertComponent implements OnInit {
-  teacher: PersonInfo;
+export class StudentInsertComponent implements OnInit {
+  student: PersonInfo;
   gender: { id: number; type: string }[] = [
     { id: 0, type: 'Male' },
     { id: 1, type: 'Female' },
@@ -50,7 +50,6 @@ export class TeacherInsertComponent implements OnInit {
     private primengConfig: PrimeNGConfig,
     private messageService: MessageService,
     private cellPhoneService: CellPhoneService,
-    private codeConversionService: CodeConversionService,
     private languageService: LanguageService
   ) {}
 
@@ -64,7 +63,7 @@ export class TeacherInsertComponent implements OnInit {
       console.log(codes);
     });
 
-    this.teacher = {
+    this.student = {
       id: 0,
       firstName: '',
       lastName: '',
@@ -86,14 +85,10 @@ export class TeacherInsertComponent implements OnInit {
   }
 
   submit() {
-    // if (this.api.apiPath == null || this.api.apiPath.trim().length < 1) {
-    //   this.messageService.add({ severity: 'warn', detail: "apiPath is mandatory." });
-    //   return;
-    // }
-    this.personInfoService.addTeacher(this.teacher).subscribe((iRet) => {
+    this.personInfoService.addStudent(this.student).subscribe((iRet) => {
       if (iRet > 0) {
-        console.log(this.teacher);
-        this.router.navigate(['/manage/teachers']);
+        console.log(this.student);
+        this.router.navigate(['/manage/students']);
       } else if (iRet == 0) {
         this.messageService.add({ severity: 'info', detail: 'Save failed.' });
       } else {
@@ -101,7 +96,7 @@ export class TeacherInsertComponent implements OnInit {
           severity: 'error',
           detail: 'An error occurred in the server',
         });
-        console.log(this.teacher);
+        console.log(this.student);
       }
     });
   }

@@ -10,20 +10,21 @@ import { PersonInfo } from 'src/app/models/system/person-info';
 import { PersonInfoService } from 'src/app/services/system/person-info.service';
 
 @Component({
-  selector: 'app-teacher-list',
-  templateUrl: './teacher-list.component.html',
-  styleUrls: ['./teacher-list.component.css'],
+  selector: 'app-student-list',
+  templateUrl: './student-list.component.html',
+  styleUrls: ['./student-list.component.css'],
   providers: [PersonInfoService, MessageService],
 })
-export class TeacherListComponent implements OnInit {
+export class StudentListComponent implements OnInit {
   apiUrl: string = environment.apiServerUrl + '/h';
-  teachers: PersonInfo[];
+  students: PersonInfo[];
   gender: { id: number; type: string }[] = [
     { id: 0, type: 'Male' },
     { id: 1, type: 'Female' },
     { id: 2, type: 'Transgender' },
     { id: 3, type: 'Non-binary' },
     { id: 4, type: 'Prefer not to say' },
+    { id: 5, type: 'Unspecified' },
   ];
 
   selected: PersonInfo;
@@ -38,21 +39,21 @@ export class TeacherListComponent implements OnInit {
   ngOnInit(): void {
     this.primengConfig.ripple = true;
 
-    this.getTeachers();
+    this.getStudents();
   }
 
-  getTeachers(): void {
-    this.personInfoService.getTeachers().subscribe((teachers) => {
-      this.teachers = teachers;
-      console.log('teachers: ', teachers);
+  getStudents(): void {
+    this.personInfoService.getStudents().subscribe((students) => {
+      this.students = students;
+      console.log('students: ', students);
     });
   }
 
-  deleteTeacher(teacher: PersonInfo): void {
-    this.personInfoService.deletePersonInfo(teacher.id).subscribe((deleteN) => {
+  deleteStudent(student: PersonInfo): void {
+    this.personInfoService.deletePersonInfo(student.id).subscribe((deleteN) => {
       if (deleteN > 0) {
         let message =
-          'Teacher "' +
+          'Student "' +
           this.selected.firstName +
           ' ' +
           this.selected.lastName +
@@ -64,33 +65,33 @@ export class TeacherListComponent implements OnInit {
           detail: message,
           life: 10000,
         });
-        this.getTeachers();
+        this.getStudents();
       } else {
         this.messageService.clear();
         this.messageService.add({
           severity: 'info',
           summary: 'Info',
-          detail: 'No teacher has been deleted.',
+          detail: 'No student has been deleted.',
           life: 10000,
         });
       }
     });
   }
 
-  deleteConfirm(teacher: PersonInfo) {
-    this.selected = teacher;
+  deleteConfirm(student: PersonInfo) {
+    this.selected = student;
     this.messageService.clear();
     this.messageService.add({
       key: 'c',
       sticky: true,
       severity: 'warn',
       summary: 'Are you sure?',
-      detail: 'Delete Teacher',
+      detail: 'Delete Student',
     });
   }
 
   onConfirm() {
-    this.deleteTeacher(this.selected);
+    this.deleteStudent(this.selected);
     this.messageService.clear('c');
   }
 
@@ -99,21 +100,21 @@ export class TeacherListComponent implements OnInit {
   }
 
   insert() {
-    this.router.navigate([`/manage/teacherinsert`]);
+    this.router.navigate([`/manage/studentinsert`]);
   }
 
-  edit(teacher: PersonInfo) {
-    this.selected = teacher;
-    this.router.navigate([`/manage/teacheredit/${teacher.id}`]);
+  edit(student: PersonInfo) {
+    this.selected = student;
+    this.router.navigate([`/manage/studentedit/${student.id}`]);
   }
 
-  detail(teacher: PersonInfo) {
-    this.selected = teacher;
-    this.router.navigate([`/manage/teacherdetail/${teacher.id}`]);
+  detail(student: PersonInfo) {
+    this.selected = student;
+    this.router.navigate([`/manage/studentdetail/${student.id}`]);
   }
 
-  attachment(teacher: PersonInfo) {
-    this.selected = teacher;
-    this.router.navigate([`/manage/teacherattach/${teacher.id}`]);
+  attachment(student: PersonInfo) {
+    this.selected = student;
+    this.router.navigate([`/manage/studentattach/${student.id}`]);
   }
 }

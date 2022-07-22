@@ -5,8 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from 'angularx-social-login';
 
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
@@ -27,8 +33,6 @@ import { PlaceAutocompleteModule } from './utility/place-autocomplete/place-auto
 import { ManageModule } from './manage/manage.module';
 import { UplusModule } from './uplus/uplus.module';
 import { PersonModule } from './person/person.module';
-
-
 
 @NgModule({
   declarations: [
@@ -69,18 +73,16 @@ import { PersonModule } from './person/person.module';
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
               '917036876132-q9rkk8uhfc7uk939agcmdkkg837le17u.apps.googleusercontent.com'
-            )
+            ),
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider(
-              '436356704210371'
-            )
-          }
-        ]
+            provider: new FacebookLoginProvider('436356704210371'),
+          },
+        ],
       } as SocialAuthServiceConfig,
-    }
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
