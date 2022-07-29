@@ -26,6 +26,10 @@ import { FaqEditComponent } from './faqs/faq-edit/faq-edit.component';
 import { FaqInsertComponent } from './faqs/faq-insert/faq-insert.component';
 import { FaqDetailComponent } from './faqs/faq-detail/faq-detail.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductListComponent } from './products/product-list/product-list.component'
+import { ProductInsertComponent } from './products/product-insert/product-insert.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component'
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
 
 const routes: Routes = [
   {
@@ -54,7 +58,10 @@ const routes: Routes = [
       { path: 'teacheredit/:id', component: TeacherEditComponent },
       { path: 'teacherdetail/:id', component: TeacherDetailComponent },
       { path: 'teacherattach/:id', component: TeacherAttachmentComponent },
-      { path: 'products', component: ProductsComponent },
+      { path: 'products', component: ProductListComponent },
+      { path: 'productinsert', component: ProductInsertComponent },
+      { path: 'productdetail/:id', component: ProductDetailComponent },
+      { path: 'productedit/:id', component: ProductEditComponent},
    ]
   }
 ];

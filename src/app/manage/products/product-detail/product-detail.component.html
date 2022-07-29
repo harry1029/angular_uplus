@@ -1,0 +1,40 @@
+<p-toast position="top-left"></p-toast>
+
+<div class="main-petty-content" style="background-color: #3D3D64">
+
+  <div style="padding: 30px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Product Code :</span>
+      <input type="text" id="pCode" pInputText [(ngModel)]="product.code" maxlength="100" style="width: 100px"
+        required>
+      <span style="padding-left: 10px; padding-right: 10px">Product Name :</span>
+      <input type="text" id="pName" pInputText [(ngModel)]="product.name" maxlength="100" style="width: 250px"
+        required>
+    </div>
+  </div>
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Original Name :</span>
+      <input type="text" id="originalName" pInputText [(ngModel)]="product.originalName" maxlength="100" style="width: 250px"
+        required>
+    </div>
+  </div>
+
+
+  <div style="padding: 10px 0px 10px; color: white;">
+    <div>
+      <span style="padding-left: 10px; padding-right: 10px">Description :</span>
+      <textarea [rows]="3" [cols]="94" pInputTextarea autoResize="autoResize" [(ngModel)]="product.description"
+        style="margin-left: 10px"></textarea>
+    </div>
+  </div>
+
+  <div style="padding:20px 0px; color: white">
+    <button pButton pRipple type="button" label="Cancel" (click)="goBack()" style="color: white; margin-left: 10px"
+      class="button-rounded-common-on-dark block-three-in-line background-scheme-horizontal"></button>
+  </div>
+  <br />
+  <br />
+  <br />
+</div>

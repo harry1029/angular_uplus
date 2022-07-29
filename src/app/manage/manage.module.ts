@@ -16,6 +16,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ImageModule } from 'primeng/image';
+import { MessageModule } from 'primeng/message'
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -50,6 +51,10 @@ import { FaqEditComponent } from './faqs/faq-edit/faq-edit.component';
 import { FaqInsertComponent } from './faqs/faq-insert/faq-insert.component';
 import { FaqDetailComponent } from './faqs/faq-detail/faq-detail.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { ProductInsertComponent } from './products/product-insert/product-insert.component'
+import { ProductDetailComponent } from './products/product-detail/product-detail.component'
+import { ProductEditComponent } from './products/product-edit/product-edit.component'
 
 @NgModule({
   declarations: [
@@ -83,6 +88,10 @@ import { ProductsComponent } from './products/products.component';
     FaqInsertComponent,
     FaqDetailComponent,
     ProductsComponent,
+    ProductListComponent,
+    ProductInsertComponent,
+    ProductDetailComponent,
+    ProductEditComponent
   ],
 
   imports: [
@@ -99,11 +108,12 @@ import { ProductsComponent } from './products/products.component';
     TreeModule,
     TableModule,
     ManageRoutingModule,
-        CalendarModule,
+    CalendarModule,
     InputNumberModule,
     HttpClientModule,
     MultiSelectModule,
     ImageModule,
+    MessageModule,
   ]
 })
 export class ManageModule { }
